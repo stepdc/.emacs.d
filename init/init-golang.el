@@ -1,0 +1,47 @@
+;;; package init-golang
+
+(use-package go-eldoc
+  :ensure t)
+
+(use-package company-go
+  :ensure t)
+
+(use-package go-mode
+  :ensure t
+  :mode ("\\.go" . go-mode)
+  :init
+  (setq gofmt-command "goimports")
+  :config
+  (progn
+    (require 'go-eldoc)
+    (require 'company-go)
+    (setq tab-width 4)
+    (setq standard-indent 4)
+    (setq gofmt-command "goimports")
+    (add-hook 'go-mode-hook
+              (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
+
+    ;; (add-hook 'go-mode-hook 'flycheck-mode)
+    ;; (add-hook 'go-mode-hook 'yas-minor-mode)
+    (add-hook 'go-mode-hook 'highlight-symbol-mode)
+    (add-hook 'go-mode-hook 'highlight-symbol-nav-mode)
+    (add-hook 'go-mode-hook
+              (lambda () (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+    (add-hook 'go-mode-hook
+              (lambda () (progn (set (make-local-variable 'compile-command)
+                                     "go generate && go build -v && go test -v && go vet") )))
+    (add-hook 'go-mode-hook
+              (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
+    (add-hook 'go-mode-hook 'company-mode)
+    (add-hook 'go-mode-hook (lambda ()
+                              (set (make-local-variable 'company-backends) '(company-go))
+                              (company-mode)))))
+
+
+(use-package go-eldoc
+  :ensure t
+  :defer
+  :init
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+(provide 'init-golang)
