@@ -1,4 +1,6 @@
 ;; ivy setup
+(use-package counsel :ensure t)
+(use-package swiper :ensure t)
 (use-package ivy :ensure t
   :diminish (ivy-mode . "")
   :bind
@@ -21,7 +23,7 @@
    :map read-expression-map ("C-r" . counsel-expression-history)
    :map ivy-mode-map ("C-'" . ivy-avy))
   :config
-  (progn 
+  (progn
     (ivy-mode 1)
     ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
     (setq ivy-use-virtual-buffers t)
