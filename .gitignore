@@ -3,4 +3,6 @@ backups
 elpa
 recentf
 smex-items
-
+.cache
+custom.el
+eshell

@@ -1,12 +1,46 @@
 ;; Use-packages
 (use-package better-defaults :ensure t)
 
+(use-package super-save
+  :ensure t
+  :defer
+  :diminish (super-save-mode
+             hl-line-mode
+             auto-revert-mode)
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t))
+
+;; yascroll
+(use-package yascroll
+  :ensure t
+  :config
+  (global-yascroll-bar-mode 1))
+
+;; ace-jump
+(use-package ace-jump-mode
+  :ensure t
+  :defer
+  :init (ace-jump-mode-enable-mark-sync)
+  :bind (("C-c SPC" . ace-jump-mode)
+        ("C-j" . ace-jump-mode)
+        ("C-S-H" . ace-jump-mode-pop-mark)
+        ("C-x SPC" . ace-jump-mode-pop-mark))
+  :config
+  (setq ace-jump-mode-case-fold t))
+
+
 ;; automatically sync buffer's content with files on disk
 (global-auto-revert-mode t)
 (setq-default auto-revert-verbose nil)
+;; (diminish 'auto-revert-mode)
 
 ;; Show current column number in status line.
 (setq column-number-mode t)
+(global-linum-mode t)
+
+;; Highlight current line.
+(global-hl-line-mode t)
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode t)
@@ -20,19 +54,18 @@
 ;; Allways add new line on end of file.
 (setq-default require-final-newline t)
 
-;; Highlight current line.
-(global-hl-line-mode t)
-
 ;; Frame config
 (defun setup-frame-decorations ()
   "Setup frame decoration in window-system"
   (tool-bar-mode 0)  ;; remove tool bar
   (menu-bar-mode 0)  ;; remove menu bar
-  (scroll-bar-mode 0)  ;; remove scroll bars
+  ;; (scroll-bar-mode 0)  ;; remove scroll bars
   (set-fringe-mode '(8 . 0))  ;; set fringe size
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
-  (set-frame-font "DejaVuSansMono 11"))
+  ;; (set-frame-font "DejaVuSansMono 11")
+  (set-frame-font "PragmataPro 12")
+  )
 
 (setup-frame-decorations)
 

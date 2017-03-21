@@ -1,6 +1,8 @@
 (use-package company
   :ensure t
   :defer t
+  :diminish (company-mode
+             eldoc-mode)
   :init (global-company-mode)
   :bind (:map company-active-map ("C-j" . company-select-next)
               :map company-active-map ("C-k" . company-select-previous)

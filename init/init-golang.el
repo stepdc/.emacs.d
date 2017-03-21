@@ -6,6 +6,13 @@
 (use-package company-go
   :ensure t)
 
+(use-package go-rename
+  :ensure t
+  :bind (:map go-mode-map ("S-<f6>" . go-rename)))
+
+(use-package go-guru
+  :ensure t)
+
 (use-package go-mode
   :ensure t
   :mode ("\\.go" . go-mode)
@@ -21,12 +28,10 @@
     (add-hook 'go-mode-hook
               (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
 
-    ;; (add-hook 'go-mode-hook 'flycheck-mode)
-    ;; (add-hook 'go-mode-hook 'yas-minor-mode)
+    (add-hook 'go-mode-hook 'flycheck-mode)
+    (add-hook 'go-mode-hook 'yas-minor-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-nav-mode)
-    (add-hook 'go-mode-hook
-              (lambda () (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
     (add-hook 'go-mode-hook
               (lambda () (progn (set (make-local-variable 'compile-command)
                                      "go generate && go build -v && go test -v && go vet") )))

@@ -2,6 +2,7 @@
 ;; ~/.emacs.d/snippets.
 (use-package yasnippet
   :ensure t
+  :diminish yas-global-mode
   :init
   (yas-global-mode t)
   ;; disable yassnippet for term-mode
