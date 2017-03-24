@@ -21,13 +21,14 @@
 (use-package ace-jump-mode
   :ensure t
   :defer
-  :init (ace-jump-mode-enable-mark-sync)
+  :init
   :bind (("C-c SPC" . ace-jump-mode)
         ("C-j" . ace-jump-mode)
         ("C-S-H" . ace-jump-mode-pop-mark)
         ("C-x SPC" . ace-jump-mode-pop-mark))
   :config
-  (setq ace-jump-mode-case-fold t))
+  (setq ace-jump-mode-case-fold t)
+  (ace-jump-mode-enable-mark-sync))
 
 
 ;; automatically sync buffer's content with files on disk

@@ -22,6 +22,7 @@
   (progn
     (require 'go-eldoc)
     (require 'company-go)
+
     (setq tab-width 4)
     (setq standard-indent 4)
     (setq gofmt-command "goimports")
@@ -40,7 +41,8 @@
     (add-hook 'go-mode-hook 'company-mode)
     (add-hook 'go-mode-hook (lambda ()
                               (set (make-local-variable 'company-backends) '(company-go))
-                              (company-mode)))))
+                              (company-mode)
+                              (require 'go-flycheck)))))
 
 
 (use-package go-eldoc
