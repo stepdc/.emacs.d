@@ -1,8 +1,9 @@
-auto-save-list
-backups
-elpa
-recentf
-smex-items
-.cache
-custom.el
-eshell
+auto-save-list/
+backups/
+elpa/
+recentf/
+smex-items/
+.cache/
+custom.el/
+eshell/
+.mc-lists.el/
