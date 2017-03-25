@@ -25,5 +25,6 @@
 (require 'init-vc)
 (require 'init-company)
 (require 'init-golang)
+(require 'init-server)
 
 ;;; init.el ends here

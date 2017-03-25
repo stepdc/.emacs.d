@@ -22,7 +22,12 @@
 ;; Highlight symbol
 (use-package highlight-symbol
   :ensure t
+  :defer t)
+
+(use-package multiple-cursors
+  :ensure t
   :defer t
-  :config)
+  :bind
+  ("M-D" . mc/mark-next-like-this-word))
 
 (provide 'init-extra)

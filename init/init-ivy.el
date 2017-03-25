@@ -18,6 +18,7 @@
    ("C-c g" . counsel-git)
    ("C-c j" . counsel-git-grep)
    ("C-c k" . counsel-ag)
+   ("C-c l" . counsel-imenu)
    ("C-x l" . counsel-locate)
    ("C-S-o" . counsel-rhythmbox)
    :map read-expression-map ("C-r" . counsel-expression-history)
