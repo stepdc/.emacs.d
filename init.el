@@ -26,5 +26,6 @@
 (require 'init-company)
 (require 'init-golang)
 (require 'init-server)
+(require 'init-py)
 
 ;;; init.el ends here
