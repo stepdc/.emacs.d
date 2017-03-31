@@ -1,5 +1,6 @@
 ;; Use-packages
 (use-package better-defaults :ensure t)
+(use-package fzf :ensure t)
 
 (use-package super-save
   :ensure t

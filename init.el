@@ -25,6 +25,7 @@
 (require 'init-vc)
 (require 'init-company)
 (require 'init-golang)
+(require 'init-c-cpp)
 (require 'init-server)
 (require 'init-py)
 
