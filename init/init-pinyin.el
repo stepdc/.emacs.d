@@ -58,4 +58,4 @@
   (require 'chinese-pyim)
   (chinese-pyim-greatdict-enable))
 
-(provide 'init-py)
+(provide 'init-pinyin)

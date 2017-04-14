@@ -12,12 +12,6 @@
   (super-save-mode +1)
   (setq super-save-auto-save-when-idle t))
 
-;; yascroll
-(use-package yascroll
-  :ensure t
-  :config
-  (global-yascroll-bar-mode 1))
-
 ;; ace-jump
 (use-package ace-jump-mode
   :ensure t
@@ -77,6 +71,12 @@
             (with-selected-frame frame (setup-frame-decorations))))
 
 ;; (global-set-key (kbd "<f2>") 'toggle-truncate-lines)
+
+;; yascroll
+(use-package yascroll
+  :ensure t
+  :config
+  (global-yascroll-bar-mode 1))
 
 ;; C-a, move to first non space char of the line
 (defun smarter-move-beginning-of-line (arg)

@@ -11,7 +11,9 @@
   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
 
 (use-package go-guru
-  :ensure t)
+  :ensure t
+  :config
+  (go-guru-hl-identifier-mode))
 
 (use-package go-mode
   :ensure t

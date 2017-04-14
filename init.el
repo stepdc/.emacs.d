@@ -27,6 +27,7 @@
 (require 'init-golang)
 (require 'init-c-cpp)
 (require 'init-server)
-(require 'init-py)
+(require 'init-pinyin)
+(require 'init-ispell)
 
 ;;; init.el ends here
