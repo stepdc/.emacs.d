@@ -1,6 +1,6 @@
 ;; Use-packages
 (use-package better-defaults :ensure t)
-(use-package fzf :ensure t)
+;; (use-package fzf :ensure t)
 
 (use-package super-save
   :ensure t
@@ -13,18 +13,36 @@
   (setq super-save-auto-save-when-idle t))
 
 ;; ace-jump
-(use-package ace-jump-mode
-  :ensure t
-  :defer
-  :init
-  :bind (("C-c SPC" . ace-jump-mode)
-        ("C-j" . ace-jump-mode)
-        ("C-S-H" . ace-jump-mode-pop-mark)
-        ("C-x SPC" . ace-jump-mode-pop-mark))
-  :config
-  (setq ace-jump-mode-case-fold t)
-  (ace-jump-mode-enable-mark-sync))
+;; (use-package ace-jump-mode
+;;   :ensure t
+;;   :defer
+;;   :init
+;;   :bind (("C-c SPC" . ace-jump-mode)
+;;         ("C-j" . ace-jump-mode)
+;;         ("C-S-H" . ace-jump-mode-pop-mark)
+;;         ("C-x SPC" . ace-jump-mode-pop-mark))
+;;   :config
+;;   (setq ace-jump-mode-case-fold t)
+;;   (ace-jump-mode-enable-mark-sync))
 
+;; ace-window
+(use-package ace-window
+  :ensure t
+  :bind(
+        ("M-p" . ace-window))
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (defvar aw-dispatch-alist
+    '((?x aw-delete-window " Ace - Delete Window")
+      (?m aw-swap-window " Ace - Swap Window")
+      (?n aw-flip-window)
+      (?c aw-split-window-fair " Ace - Split Fair Window")
+      (?v aw-split-window-vert " Ace - Split Vert Window")
+      (?b aw-split-window-horz " Ace - Split Horz Window")
+      (?i delete-other-windows " Ace - Maximize Window")
+      (?o delete-other-windows))
+    "List of actions for `aw-dispatch-default'.")
+  )
 
 ;; automatically sync buffer's content with files on disk
 (global-auto-revert-mode t)
@@ -81,7 +99,6 @@
 ;; C-a, move to first non space char of the line
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
-
 Move point to the first non-whitespace character on this line.
 If point is already there, move to the beginning of the line.
 Effectively toggle between the first non-whitespace character and
@@ -125,7 +142,7 @@ point reaches the beginning or end of the buffer, stop there."
   "Kill the currently active buffer -- set to C-x k so that users
 are not asked which buffer they want to kill."
   (interactive)
-(let (kill-buffer-query-functions) (kill-buffer)))
+  (let (kill-buffer-query-functions) (kill-buffer)))
 
 ;; Load custom settings (those changed with M-x customize).
 (setq custom-file "~/.emacs.d/custom.el")

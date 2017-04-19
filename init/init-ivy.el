@@ -1,6 +1,17 @@
 ;; ivy setup
 (use-package counsel :ensure t)
+
 (use-package swiper :ensure t)
+
+(use-package avy :ensure t
+  :bind(
+        ("C-:" . avy-goto-char)
+        ("C-'" . avy-goto-char-2)
+        ("M-g f" . avy-goto-line)
+        ("M-g w" . avy-goto-word-1)
+        ("M-g e" . avy-goto-word-0)
+        ))
+
 (use-package ivy :ensure t
   :diminish (ivy-mode . "")
   :bind
@@ -21,8 +32,7 @@
    ("C-c l" . counsel-imenu)
    ("C-x l" . counsel-locate)
    ("C-S-o" . counsel-rhythmbox)
-   :map read-expression-map ("C-r" . counsel-expression-history)
-   :map ivy-mode-map ("C-'" . ivy-avy))
+   :map read-expression-map ("C-r" . counsel-expression-history))
   :config
   (progn
     (ivy-mode 1)

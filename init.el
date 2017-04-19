@@ -29,5 +29,6 @@
 (require 'init-server)
 (require 'init-pinyin)
 (require 'init-ispell)
+(require 'init-key-chord)
 
 ;;; init.el ends here
