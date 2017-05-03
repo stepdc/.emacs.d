@@ -53,4 +53,6 @@
   :init
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
+(use-package go-snippets :ensure t)
+
 (provide 'init-golang)
