@@ -120,8 +120,7 @@
   (set-fringe-mode '(8 . 0))  ;; set fringe size
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
-  ;; (set-frame-font "DejaVuSansMono 11")
-  (set-frame-font "PragmataPro 12")
+  (set-frame-font "DejaVuSansMono 11")
   )
 
 (setup-frame-decorations)
