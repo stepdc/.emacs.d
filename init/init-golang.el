@@ -28,6 +28,11 @@
     (setq tab-width 4)
     (setq standard-indent 4)
     (setq gofmt-command "goimports")
+
+    (if (not (string-match "go" compile-command))
+        (set (make-local-variable 'compile-command)
+             "go generate && go install -v && go test -v && go vet"))
+    
     (add-hook 'go-mode-hook
               (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
 
@@ -40,7 +45,6 @@
                                      "go generate && go build -v && go test -v && go vet") )))
     (add-hook 'go-mode-hook
               (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
-    (add-hook 'go-mode-hook 'company-mode)
     (add-hook 'go-mode-hook (lambda ()
                               (set (make-local-variable 'company-backends) '(company-go))
                               (company-mode)
