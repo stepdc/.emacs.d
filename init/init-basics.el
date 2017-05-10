@@ -136,7 +136,7 @@
 (use-package yascroll
   :ensure t
   :config
-  (global-yascroll-bar-mode 1))
+  (global-yascroll-bar-mode t))
 
 ;; C-a, move to first non space char of the line
 (defun smarter-move-beginning-of-line (arg)
@@ -271,5 +271,15 @@ nil are ignored."
     modified-found
     )
   )
+
+;; pop-tag
+(global-set-key (kbd "M-*") 'pop-tag-mark)
+
+;; c-i, c-o jumper
+(require 'nice-jumper)
+(nice-jumper-mode t)
+(global-set-key (kbd "C-o") 'nice-jumper/backward)
+(define-key input-decode-map [?\C-i] [control-i])
+(global-set-key [control-i] 'nice-jumper/forward)
 
 (provide 'init-basics)
