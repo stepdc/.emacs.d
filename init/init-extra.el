@@ -45,4 +45,17 @@
   ;;        (">" . mc/edit-ends-of-lines))
   )
 
+;; pop-tag
+(global-set-key (kbd "M-*") 'pop-tag-mark)
+
+;; c-i, c-o jumper
+(require 'nice-jumper)
+(global-nice-jumper-mode t)
+;; (global-set-key (kbd "C-o") 'nice-jumper/backward)
+;; (define-key input-decode-map [?\C-i] [control-i])
+;; (global-set-key [control-i] 'nice-jumper/forward)
+(global-set-key (kbd "C-S-h") 'nice-jumper/backward)
+(global-set-key (kbd "C-S-l") 'nice-jumper/forward)
+
+
 (provide 'init-extra)

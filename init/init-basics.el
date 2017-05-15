@@ -14,38 +14,6 @@
   (super-save-mode +1)
   (setq super-save-auto-save-when-idle t))
 
-;; ace-jump
-;; (use-package ace-jump-mode
-;;   :ensure t
-;;   :defer
-;;   :init
-;;   :bind (("C-c SPC" . ace-jump-mode)
-;;         ("C-j" . ace-jump-mode)
-;;         ("C-S-H" . ace-jump-mode-pop-mark)
-;;         ("C-x SPC" . ace-jump-mode-pop-mark))
-;;   :config
-;;   (setq ace-jump-mode-case-fold t)
-;;   (ace-jump-mode-enable-mark-sync))
-
-;; ace-window
-;; (use-package ace-window
-;;   :ensure t
-;;   :bind(
-;;         ("C-M-o" . ace-window))
-;;   :config
-;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-;;   (defvar aw-dispatch-alist
-;;     '((?x aw-delete-window " Ace - Delete Window")
-;;       (?m aw-swap-window " Ace - Swap Window")
-;;       (?n aw-flip-window)
-;;       (?c aw-split-window-fair " Ace - Split Fair Window")
-;;       (?v aw-split-window-vert " Ace - Split Vert Window")
-;;       (?b aw-split-window-horz " Ace - Split Horz Window")
-;;       (?i delete-other-windows " Ace - Maximize Window")
-;;       (?o delete-other-windows))
-;;     "List of actions for `aw-dispatch-default'.")
-;;   )
-
 (use-package ace-window
   :ensure t
   :defer 1
@@ -272,14 +240,5 @@ nil are ignored."
     )
   )
 
-;; pop-tag
-(global-set-key (kbd "M-*") 'pop-tag-mark)
-
-;; c-i, c-o jumper
-(require 'nice-jumper)
-(nice-jumper-mode t)
-(global-set-key (kbd "C-o") 'nice-jumper/backward)
-(define-key input-decode-map [?\C-i] [control-i])
-(global-set-key [control-i] 'nice-jumper/forward)
 
 (provide 'init-basics)

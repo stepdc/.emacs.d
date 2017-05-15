@@ -1,6 +1,7 @@
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode))
+  :init (global-flycheck-mode)
+)
          
 
 ;; (use-package flycheck-gometalinter

@@ -1,8 +1,5 @@
 ;;; package init-golang
 
-(use-package go-eldoc
-  :ensure t)
-
 (use-package company-go
   :ensure t)
 
@@ -23,7 +20,7 @@
   :config
   (progn
     (require 'go-eldoc)
-    (require 'company-go)
+    ;;(require 'company-go)
 
     (setq tab-width 4)
     (setq standard-indent 4)
@@ -51,11 +48,11 @@
                               (require 'go-flycheck)))))
 
 
-(use-package go-eldoc
-  :ensure t
-  :defer
-  :init
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+;; (use-package go-eldoc
+;;   :ensure t
+;;   :defer
+;;   :init
+;;   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (use-package go-snippets :ensure t)
 

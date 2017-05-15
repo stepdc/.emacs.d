@@ -17,7 +17,6 @@
 
 (require 'init-packages)
 (require 'init-basics)
-(require 'init-extra)
 (require 'init-yas)
 (require 'init-themes)
 (require 'init-ivy)
@@ -31,5 +30,6 @@
 (require 'init-ispell)
 ;; (require 'init-key-chord)
 (require 'init-hydra)
-
+;; (require 'init-ycmd)
+(require 'init-extra)
 ;;; init.el ends here
