@@ -22,14 +22,17 @@
 (require 'init-ivy)
 (require 'init-flycheck)
 (require 'init-vc)
+;; (require 'init-ac)
 (require 'init-company)
 (require 'init-golang)
 (require 'init-c-cpp)
 (require 'init-server)
-(require 'init-pinyin)
+;; (require 'init-pinyin)
 (require 'init-ispell)
 ;; (require 'init-key-chord)
 (require 'init-hydra)
 ;; (require 'init-ycmd)
 (require 'init-extra)
+
+
 ;;; init.el ends here

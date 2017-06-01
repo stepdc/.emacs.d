@@ -57,5 +57,24 @@
 (global-set-key (kbd "C-S-h") 'nice-jumper/backward)
 (global-set-key (kbd "C-S-l") 'nice-jumper/forward)
 
+;; ivy icon
+;; (use-package all-the-icons-ivy
+;;   :ensure t
+;;   :config
+;;   (progn
+;;     (all-the-icons-ivy-setup)))
+
+;; yascroll
+;; (use-package yascroll
+;;   :ensure t
+;;   :config
+;;   (global-yascroll-bar-mode 1))
+
+;; indent-guide
+;; (use-package indent-guide
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (indent-guide-global-mode))
 
 (provide 'init-extra)

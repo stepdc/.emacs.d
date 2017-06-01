@@ -3,6 +3,9 @@
 (use-package company-go
   :ensure t)
 
+;; (use-package go-autocomplete
+;;   :ensure t)
+
 (use-package go-rename
   :ensure t
   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
@@ -19,11 +22,8 @@
   (setq gofmt-command "goimports")
   :config
   (progn
-    (require 'go-eldoc)
-    ;;(require 'company-go)
-
-    (setq tab-width 4)
-    (setq standard-indent 4)
+    (setq tab-width 8)
+    (setq standard-indent 8)
     (setq gofmt-command "goimports")
 
     (if (not (string-match "go" compile-command))
@@ -48,11 +48,11 @@
                               (require 'go-flycheck)))))
 
 
-;; (use-package go-eldoc
-;;   :ensure t
-;;   :defer
-;;   :init
-;;   (add-hook 'go-mode-hook 'go-eldoc-setup))
+(use-package go-eldoc
+  :ensure t
+  :defer
+  :init
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (use-package go-snippets :ensure t)
 

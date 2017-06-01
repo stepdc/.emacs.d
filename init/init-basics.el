@@ -2,7 +2,7 @@
 (use-package better-defaults :ensure t)
 ;; (use-package fzf :ensure t)
 
-(setq gc-cons-threshold 40000000) ;; 40MB
+(setq gc-cons-threshold 80000000) ;; 80MB
 
 (use-package super-save
   :ensure t
@@ -61,8 +61,10 @@
 ;; (diminish 'auto-revert-mode)
 
 ;; Show current column number in status line.
-(setq column-number-mode t)
-(global-linum-mode t)
+;; (use-package nlinum
+;;   :config
+;;   (global-nlinum-mode t))
+
 
 ;; Highlight current line.
 (global-hl-line-mode t)
@@ -99,12 +101,6 @@
             (with-selected-frame frame (setup-frame-decorations))))
 
 ;; (global-set-key (kbd "<f2>") 'toggle-truncate-lines)
-
-;; yascroll
-(use-package yascroll
-  :ensure t
-  :config
-  (global-yascroll-bar-mode t))
 
 ;; C-a, move to first non space char of the line
 (defun smarter-move-beginning-of-line (arg)
@@ -240,5 +236,7 @@ nil are ignored."
     )
   )
 
+;; remove all source control hooks
+(setq vc-handled-backends ())
 
 (provide 'init-basics)
