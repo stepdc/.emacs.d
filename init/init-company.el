@@ -25,4 +25,7 @@
             (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing)
             ))
 
+(use-package company-statistics
+  :ensure t)
+
 (provide 'init-company)

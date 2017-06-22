@@ -49,4 +49,7 @@
           ;; allow input not in order
           '((t   . ivy--regex-ignore-order)))))
 
+(use-package ivy-hydra
+  :ensure t)
+
 (provide 'init-ivy)

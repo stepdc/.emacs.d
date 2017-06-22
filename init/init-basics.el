@@ -66,6 +66,9 @@
 ;;   (global-nlinum-mode t))
 
 
+;; column number
+(column-number-mode t)
+
 ;; Highlight current line.
 (global-hl-line-mode t)
 

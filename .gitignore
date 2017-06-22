@@ -10,3 +10,6 @@
 /pyim
 /irony
 /ac-comphist.dat
+/url
+\#*
+/company-statistics-cache.el
