@@ -32,6 +32,8 @@
    ("C-c l" . counsel-imenu)
    ("C-x l" . counsel-locate)
    ("C-S-o" . counsel-rhythmbox)
+   ("C-c v" . ivy-push-view)
+   ("C-c V" . ivy-pop-view)
    :map read-expression-map ("C-r" . counsel-expression-history))
   :config
   (progn

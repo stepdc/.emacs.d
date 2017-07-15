@@ -17,7 +17,8 @@
 (use-package ace-window
   :ensure t
   :defer 1
-  :bind (("C-M-o" . ace-window))
+  :bind (("C-M-o" . ace-window)
+         ("C-c p" . ace-window))
   :config
   (set-face-attribute 'aw-leading-char-face nil :foreground "deep sky blue" :weight 'bold :height 3.0)
   (set-face-attribute 'aw-mode-line-face nil :inherit 'mode-line-buffer-id :foreground "dim gray")
@@ -64,6 +65,17 @@
 ;; (use-package nlinum
 ;;   :config
 ;;   (global-nlinum-mode t))
+
+;; (defadvice linum-on (around linum-on-inhibit-for-modes)
+;;            "Stop the load of linum-mode for some major modes."
+;;            (unless (member major-mode linum-mode-inhibit-modes-list)
+;;              ad-do-it))
+;; (ad-activate 'linum-on)
+
+;; ;; updated line number every second
+;; (setq linum-delay t)
+;; (defadvice linum-schedule (around my-linum-schedule () activate)
+;; (run-with-idle-timer 1 nil #'linum-update-current))
 
 
 ;; column number

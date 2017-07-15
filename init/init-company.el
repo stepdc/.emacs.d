@@ -26,6 +26,8 @@
             ))
 
 (use-package company-statistics
-  :ensure t)
+  :ensure t
+  :config (progn
+            (company-statistics-mode)))
 
 (provide 'init-company)
