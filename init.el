@@ -28,7 +28,7 @@
 (require 'init-c-cpp)
 (require 'init-server)
 ;; (require 'init-pinyin)
-(require 'init-ispell)
+;; (require 'init-ispell)
 ;; (require 'init-key-chord)
 (require 'init-hydra)
 ;; (require 'init-ycmd)

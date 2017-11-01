@@ -254,4 +254,7 @@ nil are ignored."
 ;; remove all source control hooks
 (setq vc-handled-backends ())
 
+;; disable bell
+(setq visible-bell nil)
+
 (provide 'init-basics)

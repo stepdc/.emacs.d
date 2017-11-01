@@ -3,9 +3,6 @@
 (use-package company-go
   :ensure t)
 
-;; (use-package go-autocomplete
-;;   :ensure t)
-
 (use-package go-rename
   :ensure t
   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
@@ -44,8 +41,7 @@
               (lambda () (local-set-key (kbd "M-.") 'godef-jump)))
     (add-hook 'go-mode-hook (lambda ()
                               (set (make-local-variable 'company-backends) '(company-go))
-                              (company-mode)
-                              (require 'go-flycheck)))))
+                              (company-mode)))))
 
 
 (use-package go-eldoc
@@ -55,5 +51,16 @@
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 (use-package go-snippets :ensure t)
+
+(use-package gotest
+  :ensure t
+  :defer
+  :config
+  (progn
+    (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
+    (define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
+    (define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
+    (define-key go-mode-map (kbd "C-x b") 'go-test-current-benchmark)
+    (define-key go-mode-map (kbd "C-x x") 'go-run)))
 
 (provide 'init-golang)

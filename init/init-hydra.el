@@ -7,7 +7,7 @@
     ("M-y" yank-pop nil)
     ("y" (yank-pop 1) "next")
     ("Y" (yank-pop -1) "prev")
-    ("l" helm-show-kill-ring "list" :color blue))   ; or browse-kill-ring
+    ("l" browse-kill-ring "list" :color blue))   ; or browse-kill-ring
   (global-set-key (kbd "M-y") #'hydra-yank-pop/yank-pop)
   (global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
 

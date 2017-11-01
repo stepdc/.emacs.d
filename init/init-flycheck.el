@@ -1,12 +1,13 @@
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  )
+  :init (global-flycheck-mode))
 
 
 ;; (use-package flycheck-gometalinter
 ;;   :ensure t
 ;;   :config
+;;   (progn
+;;     (flycheck-gometalinter-setup))
 ;;   (add-hook 'go-mode-hook
 ;;             (lambda ()
 ;;               (progn
@@ -18,7 +19,7 @@
 ;;                 ;; use in tests files
 ;;                 (setq flycheck-gometalinter-test t)
 ;;                 ;; disable linters
-;;                 (setq flycheck-gometalinter-disable-linters '("gotype" "gocyclo"))
+;;                 ;; (setq flycheck-gometalinter-disable-linters '("gotype" "gocyclo"))
 ;;                 ;; Only enable selected linters
 ;;                 ;; (setq flycheck-gometalinter-disable-all t)
 ;;                 (setq flycheck-gometalinter-enable-linters '("golint"))

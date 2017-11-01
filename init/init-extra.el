@@ -77,4 +77,9 @@
 ;;   :config
 ;;   (indent-guide-global-mode))
 
+;; restclient
+(use-package restclient
+  :ensure t
+  :defer t)
+
 (provide 'init-extra)
