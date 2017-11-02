@@ -82,4 +82,13 @@
   :ensure t
   :defer t)
 
+(use-package popwin
+  :ensure t
+  :config
+  (progn
+    (popwin-mode 1)
+    (setq anything-samewindow nil)
+    (push '("*anything*" :height 20) popwin:special-display-config)
+    (push '("\*Go Test*" :regexp t :height 20) popwin:special-display-config)))
+
 (provide 'init-extra)
