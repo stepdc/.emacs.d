@@ -1,10 +1,16 @@
 ;; Themes setup
+(use-package plan9-theme
+  :ensure t)
+
 (use-package solarized-theme
   :ensure t
   :config
   (if (not(display-graphic-p))
-      (setq global-hl-line-mode nil))
-  (load-theme 'solarized-light t)
+      (progn
+        ;; (setq global-hl-line-mode nil)
+        (load-theme 'plan9 t))
+    (load-theme 'solarized-light t))
+  
   ;; make the fringe stand out from the background
   ;; (setq solarized-distinct-fringe-background t)
 
