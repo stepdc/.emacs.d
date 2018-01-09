@@ -91,4 +91,26 @@
     (push '("*anything*" :height 20) popwin:special-display-config)
     (push '("\*Go Test*" :regexp t :height 20) popwin:special-display-config)))
 
+;; goto last change
+(use-package goto-chg
+  :ensure t
+  :config
+  (progn
+    (require 'goto-chg)
+    (global-set-key (kbd "C-=") 'goto-last-change)
+    (global-set-key (kbd "C-+") 'goto-last-change-reverse)))
+
+
+;; crux, most use for move begin of line
+(use-package crux
+  :ensure t
+  :config
+  (progn
+    (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+    (global-set-key (kbd "C-c o") #'crux-open-with)
+    (global-set-key [(shift return)] #'crux-smart-open-line)
+    ;; (global-set-key (kbd "s-r") #'crux-recentf-find-file)
+    (global-set-key (kbd "C-<backspace>") #'crux-kill-line-backwards)
+    (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)))
+
 (provide 'init-extra)

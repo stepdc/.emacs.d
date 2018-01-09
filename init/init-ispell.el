@@ -66,4 +66,6 @@
   (setq-local ispell-extra-args (flyspell-detect-ispell-args)))
 (add-hook 'text-mode-hook 'text-mode-hook-setup)
 
+(setq ispell-extra-args '("--lang=en_US"))
+
 (provide 'init-ispell)

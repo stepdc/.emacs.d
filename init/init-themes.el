@@ -1,26 +1,64 @@
 ;; Themes setup
-(use-package plan9-theme
-  :ensure t)
 
-(use-package solarized-theme
-  :ensure t
+(defun gh/disable-all-themes ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+;; Theme hooks
+(defvar gh/theme-hooks nil
+  "((theme-id . function) ...)")
+
+(defun gh/add-theme-hook (theme-id hook-func)
+  (add-to-list 'gh/theme-hooks (cons theme-id hook-func)))
+
+(defun gh/load-theme-advice (f theme-id &optional no-confirm no-enable &rest args)
+  "Enhances `load-theme' in two ways:
+1. Disables enabled themes for a clean slate.
+2. Calls functions registered using `gh/add-theme-hook'."
+  (unless no-enable
+    (gh/disable-all-themes))
+  (prog1
+      (apply f theme-id no-confirm no-enable args)
+    (unless no-enable
+      (pcase (assq theme-id gh/theme-hooks)
+        (`(,_ . ,f) (funcall f))))))
+
+(advice-add 'load-theme
+            :around
+            #'gh/load-theme-advice)
+
+;; (if (display-graphic-p)
+;;     (use-package solarized
+;;       :init
+;;       (progn
+;;         (gh/disable-all-themes)
+;;         (load-theme 'solarized-light t)))
+;;   (use-package plan9-theme
+;;     :ensure t
+;;     :config
+;;     (gh/disable-all-themes)
+;;     (load-theme 'plan9)))
+
+;; theme (zenburn in terminal, solarized otherwise)
+(use-package solarized
+  :if (display-graphic-p)
   :config
-  (if (not(display-graphic-p))
-      (progn
-        ;; (setq global-hl-line-mode nil)
-        (load-theme 'plan9 t))
-    (load-theme 'solarized-light t))
-  
-  ;; make the fringe stand out from the background
-  ;; (setq solarized-distinct-fringe-background t)
+  (progn
+    (setq solarized-use-variable-pitch nil
+      solarized-scale-org-headlines nil)
+    (load-theme 'solarized-light t)))
 
-  ;; make the modeline high contrast
-  ;; (setq solarized-high-contrast-mode-line t)
+;; (use-package zenburn-theme
+;;   :if (not (display-graphic-p))
+;;   :init (load-theme 'zenburn))
 
-  ;; Use less colors for indicators such as git:gutter, flycheck and similar
-  ;; (setq solarized-emphasize-indicators nil)
-  )
+(use-package plan9-theme
+  :if (not (display-graphic-p))
+  :init (load-theme 'plan9))
 
 ;; (load-theme 'quiet-light)
+
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/mgl-theme")
+;; (load-theme 'mgl-light t)
 
 (provide 'init-themes)

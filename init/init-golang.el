@@ -57,10 +57,10 @@
   :defer
   :config
   (progn
-    (define-key go-mode-map (kbd "C-x t f") 'go-test-current-file)
-    (define-key go-mode-map (kbd "C-x t t") 'go-test-current-test)
-    (define-key go-mode-map (kbd "C-x t p") 'go-test-current-project)
-    (define-key go-mode-map (kbd "C-x t b") 'go-test-current-benchmark)
-    (define-key go-mode-map (kbd "C-x t x") 'go-run)))
+    (define-key go-mode-map (kbd "C-c t f") 'go-test-current-file)
+    (define-key go-mode-map (kbd "C-c t t") 'go-test-current-test)
+    (define-key go-mode-map (kbd "C-c t p") 'go-test-current-project)
+    (define-key go-mode-map (kbd "C-c t b") 'go-test-current-benchmark)
+    (define-key go-mode-map (kbd "C-c t x") 'go-run)))
 
 (provide 'init-golang)

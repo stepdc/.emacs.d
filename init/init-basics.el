@@ -105,7 +105,9 @@
   (set-fringe-mode '(8 . 0))  ;; set fringe size
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
-  (set-frame-font "DejaVuSansMono 11")
+  (add-to-list 'default-frame-alist
+               '(font . "EssentialPragmataPro 12")
+               '(font . "DejaVuSansMono 11"))
   )
 
 (setup-frame-decorations)
@@ -116,33 +118,6 @@
             (with-selected-frame frame (setup-frame-decorations))))
 
 ;; (global-set-key (kbd "<f2>") 'toggle-truncate-lines)
-
-;; C-a, move to first non space char of the line
-(defun smarter-move-beginning-of-line (arg)
-  "Move point back to indentation of beginning of line.
-Move point to the first non-whitespace character on this line.
-If point is already there, move to the beginning of the line.
-Effectively toggle between the first non-whitespace character and
-the beginning of the line.
-
-If ARG is not nil or 1, move forward ARG - 1 lines first.  If
-point reaches the beginning or end of the buffer, stop there."
-  (interactive "^p")
-  (setq arg (or arg 1))
-
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
-
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
-
-;; Remap C-a to `smarter-move-beginning-of-line'
-(global-set-key [remap move-beginning-of-line]
-                'smarter-move-beginning-of-line)
 
 ;; Allows to switch windows with M-<up>, M-<down>, M-<left> and M-<right>;
 ;; bind-keys* allows to bind key sequence that is alway available.
