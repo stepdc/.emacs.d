@@ -10,6 +10,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
+  :defer t
   :init
   (add-hook 'racket-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
@@ -65,10 +66,10 @@
 ;;     (all-the-icons-ivy-setup)))
 
 ;; yascroll
-;; (use-package yascroll
-;;   :ensure t
-;;   :config
-;;   (global-yascroll-bar-mode 1))
+(use-package yascroll
+  :ensure t
+  :config
+  (global-yascroll-bar-mode 1))
 
 ;; indent-guide
 ;; (use-package indent-guide
@@ -84,6 +85,7 @@
 
 (use-package popwin
   :ensure t
+  :defer t
   :config
   (progn
     (popwin-mode 1)
@@ -94,6 +96,7 @@
 ;; goto last change
 (use-package goto-chg
   :ensure t
+  :defer t
   :config
   (progn
     (require 'goto-chg)
@@ -104,6 +107,7 @@
 ;; crux, most use for move begin of line
 (use-package crux
   :ensure t
+  :defer t
   :config
   (progn
     (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)

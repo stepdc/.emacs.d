@@ -1,5 +1,7 @@
 ;; Whitespace
-(use-package whitespace :ensure t
+(use-package whitespace
+  :ensure t
+  :defer t
   :bind (("C-c T w" . whitespace-mode))
   :init
   (dolist (hook '(prog-mode-hook text-mode-hooki
