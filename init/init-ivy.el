@@ -1,9 +1,15 @@
 ;; ivy setup
-(use-package counsel :ensure t)
+(use-package counsel
+  :ensure t
+  :defer)
 
-(use-package swiper :ensure t)
+(use-package swiper
+  :ensure t
+  :defer)
 
-(use-package avy :ensure t
+(use-package avy
+  :ensure t
+  :defer
   :bind(
         ("C-:" . avy-goto-char)
         ("C-;" . avy-goto-char-2)
@@ -12,8 +18,10 @@
         ("M-g e" . avy-goto-word-0)
         ))
 
-(use-package ivy :ensure t
+(use-package ivy
+  :ensure t
   :diminish (ivy-mode . "")
+  :defer
   :bind
   (("\C-s" . swiper)
    ("C-c r" . counsel-recentf)
@@ -35,7 +43,8 @@
    ("C-S-o" . counsel-rhythmbox)
    ("C-c v" . ivy-push-view)
    ("C-c V" . ivy-pop-view)
-   :map read-expression-map ("C-r" . counsel-expression-history))
+   :map read-expression-map
+   ("C-r" . counsel-expression-history))
   :config
   (progn
     (ivy-mode 1)
@@ -53,6 +62,7 @@
           '((t   . ivy--regex-ignore-order)))))
 
 (use-package ivy-hydra
-  :ensure t)
+  :ensure t
+  :defer)
 
 (provide 'init-ivy)

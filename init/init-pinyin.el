@@ -1,14 +1,13 @@
 (use-package chinese-pyim
   :ensure t
-  :defer t
+  :defer
   :config
   ;; 激活 basedict 拼音词库
   (use-package chinese-pyim-basedict
     :ensure t
-    :defer t
+    :defer
     :config
     (chinese-pyim-basedict-enable))
-
 
   ;; 五笔用户使用 wbdict 词库 
   ;; (use-package chinese-pyim-wbdict
@@ -53,7 +52,7 @@
 
 (use-package chinese-pyim-greatdict
   :ensure t
-  :defer t
+  :defer
   :config
   (require 'chinese-pyim)
   (chinese-pyim-greatdict-enable))

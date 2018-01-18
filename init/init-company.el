@@ -2,21 +2,21 @@
 
 (use-package company
   :ensure t
-  :defer t
+  :defer
   :diminish (company-mode
              eldoc-mode)
   :init (global-company-mode)
-  :bind (:map company-active-map ("C-j" . company-select-next)
-              :map company-active-map ("C-k" . company-select-previous)
-              :map company-active-map ("C-l" . company-complete-selection)
-              :map company-active-map ("C-n" . company-select-next)
-              :map company-active-map ("C-p" . company-select-previous)
-              :map company-active-map ("C-f" . company-complete-selection)
-              :map company-active-map ("TAB" . company-complete-common-or-cycle)
-              :map company-active-map ("<tab>" . company-complete-common-or-cycle)
-              :map company-active-map ("<backtab>" . company-select-previous)
-              :map company-active-map ("S-TAB" . company-select-previous)
-              )
+  :bind (:map company-active-map
+              ("C-j" . company-select-next)
+              ("C-k" . company-select-previous)
+              ("C-l" . company-complete-selection)
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)
+              ("C-f" . company-complete-selection)
+              ("TAB" . company-complete-common-or-cycle)
+              ("<tab>" . company-complete-common-or-cycle)
+              ("<backtab>" . company-select-previous)
+              ("S-TAB" . company-select-previous))
   :config (progn
             (bind-key [remap completion-at-point] #'company-complete company-mode-map)
             (setq company-tooltip-align-annotations t

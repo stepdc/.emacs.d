@@ -1,10 +1,10 @@
 ;; Enable Org functionality.
 (use-package org
   :ensure t
-  :defer t
+  :defer
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c c" . org-capture)
-         ("C-c l" . org-store-link)
+         ("C-c C-s" . org-store-link)
          ("C-c a" . org-agenda))
   :config
   (setq org-src-fontify-natively t
@@ -78,7 +78,7 @@
 
 (use-package org-bullets
   :ensure t
-  :defer t
+  :defer
   :init
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 

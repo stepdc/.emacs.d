@@ -3,12 +3,12 @@
 ;; Interface to Git.
 (use-package magit
   :ensure t
-  :defer t
+  :defer
   :config
   (setq magit-completing-read-function 'magit-ido-completing-read))
 
 (use-package magit-popup  
   :ensure t
-  :defer t)
+  :defer)
 
 (provide 'init-vc)

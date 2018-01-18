@@ -1,7 +1,7 @@
 (use-package irony
   :ensure t
-  ;; :defer t
-  :config
+  :defer
+  :init
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'objc-mode-hook 'irony-mode)
@@ -18,30 +18,31 @@
 
 (use-package company-irony
   :ensure t
-  :defer t
+  :defer
   :config
   (eval-after-load 'company
     '(add-to-list 'company-backends 'company-irony)))
 
 (use-package flycheck-irony
   :ensure t
-  :defer t
+  :defer
   :config
   (eval-after-load 'flycheck
     '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
 (use-package irony-eldoc
   :ensure t
-  :defer t
+  :defer
   :config
   (add-hook 'irony-mode-hook 'irony-eldoc))
 
 (use-package clang-format
   :ensure t
-  :bind (:map c-mode-map ("C-c i" . clang-format-region)
-	      :map c++-mode-map ("C-c i" . clang-format-region)
-	      :map c-mode-map ("C-c u" . clang-format-buffer)
-	      :map c++-mode-map ("C-c u" . clang-format-buffer))
+  :bind
+  (:map c-mode-map ("C-c i" . clang-format-region))
+  (:map c++-mode-map ("C-c i" . clang-format-region))
+  (:map c-mode-map ("C-c u" . clang-format-buffer))
+  (:map c++-mode-map ("C-c u" . clang-format-buffer))
   :config
   (setq clang-format-style-option "google"))
 

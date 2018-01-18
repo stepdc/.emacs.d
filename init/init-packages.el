@@ -20,7 +20,6 @@
       (package-install 'use-package)))
 
 (require 'use-package)
-(setq use-package-verbose t)
-
+;; (setq use-package-verbose t)
 
 (provide 'init-packages)

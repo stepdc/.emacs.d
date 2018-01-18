@@ -1,5 +1,8 @@
 (use-package hydra
   :ensure t
+  :defer
+  :bind
+  ("M-D" . 'multiple-cursors-hydra/body)
   :config
   (defhydra hydra-yank-pop ()
     "yank"
@@ -30,7 +33,6 @@
   ("M-p" mc/unmark-previous-like-this)
   ("r" mc/mark-all-in-region-regexp :exit t)
   ("q" nil))
-  (global-set-key (kbd "M-D") 'multiple-cursors-hydra/body)
-  )
+  (global-set-key (kbd "M-D") 'multiple-cursors-hydra/body))
 
 (provide 'init-hydra)

@@ -1,7 +1,7 @@
 ;; Package to present nice undo tree, activated with: C-x u.
 (use-package undo-tree
   :ensure t
-  :defer t
+  :defer
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
@@ -10,7 +10,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer t
+  :defer
   :init
   (add-hook 'racket-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
@@ -18,16 +18,16 @@
 ;; Display available keybindings in popup.
 (use-package which-key
   :ensure t
-  :defer t)
+  :defer)
 
 ;; Highlight symbol
 (use-package highlight-symbol
   :ensure t
-  :defer t)
+  :defer)
 
 (use-package multiple-cursors
   :ensure t
-  :defer t
+  :defer
   ;; :bind
   ;; ("M-D" . mc/mark-next-like-this-word)
   ;; (:map region-bindings-mode-map
@@ -68,24 +68,24 @@
 ;; yascroll
 (use-package yascroll
   :ensure t
-  :config
+  :init
   (global-yascroll-bar-mode 1))
 
 ;; indent-guide
 ;; (use-package indent-guide
 ;;   :ensure t
-;;   :defer t
+;;   :defer
 ;;   :config
 ;;   (indent-guide-global-mode))
 
 ;; restclient
 (use-package restclient
   :ensure t
-  :defer t)
+  :defer)
 
 (use-package popwin
   :ensure t
-  :defer t
+  :defer
   :config
   (progn
     (popwin-mode 1)
@@ -96,21 +96,18 @@
 ;; goto last change
 (use-package goto-chg
   :ensure t
-  :defer t
-  :config
-  (progn
-    (require 'goto-chg)
-    (global-set-key (kbd "C-=") 'goto-last-change)
-    (global-set-key (kbd "C-+") 'goto-last-change-reverse)))
-
+  :defer
+  :bind
+  ("C-=" . 'goto-last-change)
+  ("C-+" . 'goto-last-change-reverse))
 
 ;; crux, most use for move begin of line
 (use-package crux
   :ensure t
-  :defer t
+  :defer
+  :bind ("C-a" . #'crux-move-beginning-of-line)
   :config
   (progn
-    (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
     (global-set-key (kbd "C-c o") #'crux-open-with)
     (global-set-key [(shift return)] #'crux-smart-open-line)
     ;; (global-set-key (kbd "s-r") #'crux-recentf-find-file)

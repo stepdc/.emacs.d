@@ -1,12 +1,12 @@
 (use-package flycheck
   :ensure t
-  :defer t
+  :defer
   :init (global-flycheck-mode))
 
 
 (use-package flycheck-gometalinter
   :ensure t
-  :defer t
+  :defer
   :config
   (progn
     (flycheck-gometalinter-setup))

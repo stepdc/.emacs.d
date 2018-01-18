@@ -1,6 +1,6 @@
 (use-package auto-complete
   :ensure t
-  :defer t
+  :defer
   :config
   (progn
     (ac-config-default)

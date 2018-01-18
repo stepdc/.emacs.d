@@ -16,7 +16,7 @@
 
 (use-package ace-window
   :ensure t
-  :defer 1
+  :defer
   :bind (("C-M-o" . ace-window)
          ("C-c p" . ace-window))
   :config
@@ -227,7 +227,7 @@ nil are ignored."
   )
 
 ;; remove all source control hooks
-(setq vc-handled-backends ())
+;; (setq vc-handled-backends ())
 
 ;; disable bell
 (setq visible-bell nil)

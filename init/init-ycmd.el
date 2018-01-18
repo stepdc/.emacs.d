@@ -1,6 +1,6 @@
 (use-package ycmd
   :ensure t
-  :defer t
+  :defer
   :config
   (progn
     (add-hook 'go-mode-hook 'ycmd-mode)
