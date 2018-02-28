@@ -9,7 +9,6 @@
 
 (use-package go-guru
   :ensure t
-  :defer
   :config
   (go-guru-hl-identifier-mode))
 
@@ -44,14 +43,14 @@
         (set (make-local-variable 'compile-command)
              "go generate && go install -v && go test -v && go vet"))))
 
-
 (use-package go-eldoc
   :ensure t
   :defer
   :init
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
-(use-package go-snippets :ensure t)
+(use-package go-snippets
+  :ensure t)
 
 (use-package gotest
   :ensure t

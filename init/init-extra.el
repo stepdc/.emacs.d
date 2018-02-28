@@ -58,6 +58,11 @@
 (global-set-key (kbd "C-S-h") 'nice-jumper/backward)
 (global-set-key (kbd "C-S-l") 'nice-jumper/forward)
 
+;; icons
+;; (use-package  all-the-icons
+;;   :ensure t
+;;   :defer)
+
 ;; ivy icon
 ;; (use-package all-the-icons-ivy
 ;;   :ensure t
@@ -66,10 +71,10 @@
 ;;     (all-the-icons-ivy-setup)))
 
 ;; yascroll
-(use-package yascroll
-  :ensure t
-  :init
-  (global-yascroll-bar-mode 1))
+;; (use-package yascroll
+;;   :ensure t
+;;   :init
+;;   (global-yascroll-bar-mode 1))
 
 ;; indent-guide
 ;; (use-package indent-guide
@@ -115,5 +120,15 @@
     (global-set-key (kbd "C-c TAB") #'crux-indent-rigidly-and-copy-to-clipboard)
     (global-set-key (kbd "C-<backspace>") #'crux-kill-line-backwards)
     (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)))
+
+(use-package dumb-jump
+  :defer t
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
 
 (provide 'init-extra)

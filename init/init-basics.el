@@ -1,5 +1,7 @@
 ;; Use-packages
-(use-package better-defaults :ensure t)
+(use-package  better-defaults
+  :ensure t
+  :defer)
 ;; (use-package fzf :ensure t)
 
 (setq gc-cons-threshold 80000000) ;; 80MB
@@ -101,7 +103,7 @@
   "Setup frame decoration in window-system"
   (tool-bar-mode 0)  ;; remove tool bar
   (menu-bar-mode 0)  ;; remove menu bar
-  ;; (scroll-bar-mode 0)  ;; remove scroll bars
+  (scroll-bar-mode 0)  ;; remove scroll bars
   (set-fringe-mode '(8 . 0))  ;; set fringe size
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
@@ -231,5 +233,13 @@ nil are ignored."
 
 ;; disable bell
 (setq visible-bell nil)
+
+;; backup
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
 
 (provide 'init-basics)

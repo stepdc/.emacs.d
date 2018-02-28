@@ -4,7 +4,7 @@
 (use-package yasnippet
   :ensure t
   :diminish yas-global-mode
-  :init
+  :config
   (yas-global-mode t)
   ;; disable yassnippet for term-mode
   (add-hook 'term-mode-hook (lambda() (yas-minor-mode -1))))

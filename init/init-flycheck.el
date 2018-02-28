@@ -1,6 +1,6 @@
 (use-package flycheck
   :ensure t
-  :defer
+  :defer t
   :init (global-flycheck-mode))
 
 
