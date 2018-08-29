@@ -14,12 +14,36 @@
   (define-key evil-insert-state-map (kbd "C-c j") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-c k") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-c u") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
 
   ;; more bindings
-  (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "SPC w") 'save-buffer)
   (define-key evil-normal-state-map (kbd "SPC t") 'counsel-fzf)
-  )
+  (define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (previous-line 3)))
+  (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive) (next-line 3)))
+  (define-key evil-normal-state-map (kbd "K") (lambda () (interactive) (backward-paragraph)))
+  (define-key evil-normal-state-map (kbd "J") (lambda () (interactive) (forward-paragraph)))
 
+  ;; hooks
+  (add-hook 'go-mode-hook
+	    (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
+  ;; (add-hook 'focus-in-hook
+  ;; 	    #'evil-normal-state)
+
+  ;; funcs
+  (defun evil-normalize-all-buffers ()
+    "Force a drop to normal state."
+    (unless (eq evil-state 'normal)
+      (dolist (buffer (buffer-list))
+	(set-buffer buffer)
+	(unless (or (minibufferp)
+		    (eq evil-state 'emacs))
+	  (evil-force-normal-state)))
+      (message "Dropped back to normal state in all buffers")))
+
+  (defvar evil-normal-timer
+    (run-with-idle-timer 30 t #'evil-normalize-all-buffers)
+    "Drop back to normal state after idle for 30 seconds.")
+  )
 
 (provide 'init-evil)
