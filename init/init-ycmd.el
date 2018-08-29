@@ -7,7 +7,7 @@
     (require 'ycmd-eldoc)
     (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
     ;; (set-variable 'ycmd-server-command '("python" "/home/sker/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"))
-    (set-variable 'ycmd-server-command `("python" ,(file-truename "~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/")))
+    (set-variable 'ycmd-server-command `("python" ,(file-truename "~/.vim/plugged/YouCompleteMe/third_party/ycmd/ycmd/")))
     ;; (set-variable 'ycmd-global-config "/home/sker/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py")
     ))
 

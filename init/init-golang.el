@@ -21,7 +21,7 @@
   (add-hook 'go-mode-hook
               (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
 
-    (add-hook 'go-mode-hook 'flycheck-mode)
+    ;; (add-hook 'go-mode-hook 'flycheck-mode)
     (add-hook 'go-mode-hook 'yas-minor-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-nav-mode)
@@ -43,11 +43,12 @@
         (set (make-local-variable 'compile-command)
              "go generate && go install -v && go test -v && go vet"))))
 
-(use-package go-eldoc
-  :ensure t
-  :defer
-  :init
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+;; (use-package go-eldoc
+;;   :ensure t
+;;   :defer
+;;   :init
+;;   ;; (add-hook 'go-mode-hook 'go-eldoc-setup)
+;;   )
 
 (use-package go-snippets
   :ensure t)

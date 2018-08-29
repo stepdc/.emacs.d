@@ -67,6 +67,7 @@
 ;; (use-package nlinum
 ;;   :config
 ;;   (global-nlinum-mode t))
+(global-display-line-numbers-mode t)
 
 ;; (defadvice linum-on (around linum-on-inhibit-for-modes)
 ;;            "Stop the load of linum-mode for some major modes."

@@ -19,6 +19,7 @@
 (require 'init-basics)
 (require 'init-yas)
 (require 'init-themes)
+;; (require 'init-ivy)
 (require 'init-ivy)
 (require 'init-flycheck)
 (require 'init-ffip)
@@ -32,9 +33,9 @@
 (require 'init-ispell)
 (require 'init-org)
 ;; (require 'init-key-chord)
-(require 'init-hydra)
+;; (require 'init-hydra)
 ;; (require 'init-ycmd)
 (require 'init-extra)
-
+(require 'init-evil)
 
 ;;; init.el ends here

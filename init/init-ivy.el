@@ -35,8 +35,7 @@
    ("<f2> i" . counsel-info-lookup-symbol)
    ("<f2> u" . counsel-unicode-char)
    ("C-c g" . counsel-git)
-   ("C-c j" . counsel-git-grep)
-   ("C-c k" . counsel-rg)
+   ("C-c c k" . counsel-rg)
    ("C-c s" . counsel-ag)
    ("C-c l" . counsel-imenu)
    ("C-x l" . counsel-locate)
@@ -62,6 +61,10 @@
           '((t   . ivy--regex-ignore-order)))))
 
 (use-package ivy-hydra
+  :ensure t
+  :defer)
+
+(use-package flx
   :ensure t
   :defer)
 
