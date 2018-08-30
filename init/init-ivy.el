@@ -35,7 +35,7 @@
    ("<f2> i" . counsel-info-lookup-symbol)
    ("<f2> u" . counsel-unicode-char)
    ("C-c g" . counsel-git)
-   ("C-c c k" . counsel-rg)
+   ("C-c K" . counsel-rg)
    ("C-c s" . counsel-ag)
    ("C-c l" . counsel-imenu)
    ("C-x l" . counsel-locate)
