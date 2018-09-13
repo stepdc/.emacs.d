@@ -5,9 +5,9 @@
   :ensure t
   :defer
   :config
-  (setq magit-completing-read-function 'magit-ido-completing-read))
+  (setq magit-completing-read-function 'ivy-completing-read))
 
-(use-package magit-popup  
+(use-package magit-popup
   :ensure t
   :defer)
 

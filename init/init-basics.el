@@ -109,7 +109,7 @@
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
   (add-to-list 'default-frame-alist
-               '(font . "EssentialPragmataPro 12")
+               '(font . "EssentialPragmataPro 10")
                '(font . "DejaVuSansMono 11"))
   )
 
@@ -235,14 +235,6 @@ nil are ignored."
 ;; disable bell
 (setq visible-bell nil)
 
-;; backup
-(setq backup-directory-alist `(("." . "~/.saves")))
-(setq backup-by-copying t)
-(setq delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
-  version-control t)
-
 ;; config backup dirs
 ;; see https://www.emacswiki.org/emacs/BackupDirectory
 (setq
@@ -253,6 +245,11 @@ nil are ignored."
    kept-new-versions 6
    kept-old-versions 2
    version-control t)       ; use versioned backups
+
+(setq backup-directory-alist
+      `((".*" . ,"~/.saves")))
+(setq auto-save-file-name-transforms
+      `((".*" ,"~/.saves" t)))
 
 (use-package doom-modeline
   :ensure t

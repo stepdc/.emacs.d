@@ -37,5 +37,6 @@
 ;; (require 'init-ycmd)
 (require 'init-extra)
 (require 'init-evil)
+;; (require 'init-lsp)
 
 ;;; init.el ends here

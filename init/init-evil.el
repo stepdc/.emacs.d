@@ -11,28 +11,29 @@
   :config ;; tweak evil after loading it
   (evil-mode)
   ;; skip to evil normal state
-  (define-key evil-insert-state-map (kbd "C-c j")
-    (lambda () (interactive) (progn
-			       (evil-normal-state)
-			       (next-line)
-			       )))
-  (define-key evil-insert-state-map (kbd "C-c k")
-    (lambda () (interactive) (progn
-			       (evil-normal-state)
-			       (previous-line)
-			       )))
-  (define-key evil-insert-state-map (kbd "C-c u")
-    (lambda () (interactive) (progn
-			       (evil-normal-state)
-			       (undo)
-			      )))
-  (define-key evil-normal-state-map (kbd "C-c j")
-    (lambda () (interactive) (next-line)))
-  (define-key evil-normal-state-map (kbd "C-c k")
-    (lambda () (interactive) (previous-line)))
+  (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+  ;; (define-key evil-insert-state-map (kbd "C-c j")
+  ;;   (lambda () (interactive) (progn
+  ;; 			       (evil-normal-state)
+  ;; 			       (next-line)
+  ;; 			       )))
+  ;; (define-key evil-insert-state-map (kbd "C-c k")
+  ;;   (lambda () (interactive) (progn
+  ;; 			       (evil-normal-state)
+  ;; 			       (previous-line)
+  ;; 			       )))
+  ;; (define-key evil-insert-state-map (kbd "C-c u")
+  ;;   (lambda () (interactive) (progn
+  ;; 			       (evil-normal-state)
+  ;; 			       (undo)
+  ;; 			      )))
+  ;; (define-key evil-normal-state-map (kbd "C-c j")
+  ;;   (lambda () (interactive) (next-line)))
+  ;; (define-key evil-normal-state-map (kbd "C-c k")
+  ;;   (lambda () (interactive) (previous-line)))
 
   ;; (define-key evil-insert-state-map (kbd "C-c u") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
+  ;; (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
 
   ;; more bindings
   (define-key evil-normal-state-map (kbd "SPC w") 'save-buffer)

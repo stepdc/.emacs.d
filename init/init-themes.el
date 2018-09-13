@@ -40,13 +40,19 @@
 ;;     (load-theme 'plan9)))
 
 ;; theme (zenburn in terminal, solarized otherwise)
-(use-package solarized
+;; (use-package solarized
+;;   :if (display-graphic-p)
+;;   :config
+;;   (progn
+;;     (setq solarized-use-variable-pitch nil
+;;       solarized-scale-org-headlines nil)
+;;     (load-theme 'solarized-light t)))
+
+(use-package spacemacs-theme
   :if (display-graphic-p)
-  :config
-  (progn
-    (setq solarized-use-variable-pitch nil
-      solarized-scale-org-headlines nil)
-    (load-theme 'solarized-light t)))
+  :ensure t
+  :defer t
+  :init	(load-theme 'spacemacs-light t))
 
 ;; (use-package zenburn-theme
 ;;   :if (not (display-graphic-p))
