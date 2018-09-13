@@ -48,11 +48,16 @@
 ;;       solarized-scale-org-headlines nil)
 ;;     (load-theme 'solarized-light t)))
 
-(use-package spacemacs-theme
+;; (use-package spacemacs-theme
+;;   :if (display-graphic-p)
+;;   :ensure t
+;;   :defer t
+;;   :init	(load-theme 'spacemacs-light t))
+
+(use-package spacemacs-common
   :if (display-graphic-p)
-  :ensure t
-  :defer t
-  :init	(load-theme 'spacemacs-light t))
+  :ensure spacemacs-theme
+  :config (load-theme 'spacemacs-light t))
 
 ;; (use-package zenburn-theme
 ;;   :if (not (display-graphic-p))
