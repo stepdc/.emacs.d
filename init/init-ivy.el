@@ -55,10 +55,14 @@
     (setq ivy-count-format "")
     ;; no regexp by default
     (setq ivy-initial-inputs-alist nil)
+
+    ;; Enhance fuzzy matching
+    (use-package flx :ensure t)
     ;; configure regexp engine.
     (setq ivy-re-builders-alist
           ;; allow input not in order
-          '((t   . ivy--regex-ignore-order)))))
+          '((read-file-name-internal . ivy--regex-fuzzy)
+	    (t . ivy--regex-ignore-order)))))
 
 (use-package ivy-hydra
   :ensure t
