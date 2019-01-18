@@ -18,8 +18,10 @@
   :defer
   :init
   (setq gofmt-command "goimports")
-  (add-hook 'go-mode-hook
-              (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
+  ;; (add-hook 'go-mode-hook
+  ;;             (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
+    (add-hook 'go-mode-hook #'lsp)
+    (add-hook 'before-save-hook 'lsp-format-buffer)
 
     (add-hook 'go-mode-hook 'flycheck-mode)
     (add-hook 'go-mode-hook 'yas-minor-mode)
@@ -33,7 +35,7 @@
     (add-hook 'go-mode-hook
 	      (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
     (add-hook 'go-mode-hook (lambda ()
-                              (set (make-local-variable 'company-backends) '(company-go))
+                              ;; (set (make-local-variable 'company-backends) '(company-go))
                               (company-mode)))
   :config
   (progn

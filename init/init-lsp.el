@@ -18,28 +18,20 @@
   ;; (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   )
 
-(use-package lsp-ui
-  :ensure
-  :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references))
-  :hook (lsp-mode . lsp-ui-mode)
-  :init (setq scroll-margin 0))
-
-;; (use-package company-lsp
+;; (use-package lsp-ui
 ;;   :ensure
-;;   :after company
-;;   :defines company-backends
-;;   :config
-;;   (push 'company-lsp company-backends)
-;;   (setq company-lsp-async t))
+;;   :bind (:map lsp-ui-mode-map
+;;               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+;;               ([remap xref-find-references] . lsp-ui-peek-find-references))
+;;   :hook (lsp-mode . lsp-ui-mode)
+;;   :init (setq scroll-margin 0))
 
-;; Go support for lsp-mode using Sourcegraph's Go Language Server
-;; Install: go get -u github.com/sourcegraph/go-langserver
-(use-package lsp-go
+(use-package company-lsp
   :ensure
-  :commands lsp-go-enable
-  :hook (go-mode . lsp-go-enable)
-:config (setq lsp-go-gocode-completion-enabled t))
+  :after company
+  :defines company-backends
+  :config
+  (push 'company-lsp company-backends)
+  (setq company-lsp-async t))
 
 (provide 'init-lsp)
