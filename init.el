@@ -30,7 +30,7 @@
 (require 'init-c-cpp)
 ;; (require 'init-server)
 (require 'init-pinyin)
-(require 'init-ispell)
+(require 'init-spelling)
 (require 'init-org)
 ;; (require 'init-key-chord)
 ;; (require 'init-hydra)

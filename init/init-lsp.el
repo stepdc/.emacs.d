@@ -14,8 +14,9 @@
     (revert-buffer t t)
     (message "LSP server restarted."))
 
-  (require 'lsp-imenu)
-(add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
+  ;; (require 'lsp-imenu)
+  ;; (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  )
 
 (use-package lsp-ui
   :ensure
@@ -25,11 +26,13 @@
   :hook (lsp-mode . lsp-ui-mode)
   :init (setq scroll-margin 0))
 
-(use-package company-lsp
-  :ensure
-  :after company
-  :defines company-backends
-  :config (push 'company-lsp company-backends))
+;; (use-package company-lsp
+;;   :ensure
+;;   :after company
+;;   :defines company-backends
+;;   :config
+;;   (push 'company-lsp company-backends)
+;;   (setq company-lsp-async t))
 
 ;; Go support for lsp-mode using Sourcegraph's Go Language Server
 ;; Install: go get -u github.com/sourcegraph/go-langserver

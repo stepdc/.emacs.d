@@ -109,7 +109,7 @@
   (blink-cursor-mode t)  ;; turn on blinking cursor
   (setq-default cursor-type 'box)
   (add-to-list 'default-frame-alist
-               '(font . "EssentialPragmataPro 10")
+               '(font . "EssentialPragmataPro 11")
                '(font . "DejaVuSansMono 11"))
   )
 
@@ -239,21 +239,32 @@ nil are ignored."
 ;; see https://www.emacswiki.org/emacs/BackupDirectory
 (setq
    backup-by-copying t      ; don't clobber symlinks
-   backup-directory-alist
-    '(("." . "~/.saves/"))    ; don't litter my fs tree
+   ;; backup-directory-alist
+   ;;  '(("." . "~/.saves/"))    ; don't litter my fs tree
    delete-old-versions t
    kept-new-versions 6
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
+;; (setq backup-directory-alist
+;;       `((".*" . ,"~/.saves")))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,"~/.saves" t)))
+
 (setq backup-directory-alist
-      `((".*" . ,"~/.saves")))
+      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,"~/.saves" t)))
+      `((".*" ,temporary-file-directory t)))
 
 (use-package doom-modeline
   :ensure t
   :defer t
   :hook (after-init . doom-modeline-init))
+
+(use-package yaml-mode
+  :ensure t
+  :defer t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
 
 (provide 'init-basics)

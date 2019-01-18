@@ -90,12 +90,13 @@
 
 (use-package popwin
   :ensure t
-  :defer
+  ;; :defer
   :config
   (progn
     (popwin-mode 1)
     (setq anything-samewindow nil)
     (push '("*anything*" :height 20) popwin:special-display-config)
+    (push '("*godoctor toggle*" :height 20) popwin:special-display-config)
     (push '("\*Go Test*" :regexp t :height 20) popwin:special-display-config)))
 
 ;; goto last change

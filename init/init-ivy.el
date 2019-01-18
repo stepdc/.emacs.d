@@ -42,6 +42,8 @@
    ("C-S-o" . counsel-rhythmbox)
    ("C-c v" . ivy-push-view)
    ("C-c V" . ivy-pop-view)
+   ("C-c b" . ivy-switch-view)
+   ("C-c o" . ivy-switch-view)
    :map read-expression-map
    ("C-r" . counsel-expression-history))
   :config

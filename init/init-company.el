@@ -22,10 +22,19 @@
             (setq company-tooltip-align-annotations t
                   company-show-numbers t) ;; Easy navigation to candidates with M-<n>
             (setq company-tooltip-limit 20)                      ; bigger popup window
-            (setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
+            (setq company-idle-delay .2)                         ; decrease delay before autocompletion popup shows
             (setq company-echo-delay 0)                          ; remove annoying blinking
             (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing)
-            ;; (company-tng-configure-default)
+	    (setq company-minimum-prefix-length 2)
+
+	    (setq company-dabbrev-downcase nil)
+	    (setq company-dabbrev-ignore-case t)
+
+	    (setq company-dabbrev-code-ignore-case t)
+	    (setq company-dabbrev-code-everywhere t)
+
+	    (setq company-etags-ignore-case t)
+	    ;; (company-tng-configure-default)
             ))
 
 ;; (use-package company-statistics

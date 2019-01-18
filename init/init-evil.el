@@ -15,6 +15,7 @@
 
   ;; more bindings
   (define-key evil-normal-state-map (kbd "SPC w") 'save-buffer)
+  ;; (define-key evil-normal-state-map (kbd "SPC t") 'fzf-projectile)
   (define-key evil-normal-state-map (kbd "SPC t") 'counsel-fzf)
   (define-key evil-normal-state-map (kbd "C-k") (lambda () (interactive) (previous-line 3)))
   (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive) (next-line 3)))
@@ -22,10 +23,10 @@
   (define-key evil-normal-state-map (kbd "J") (lambda () (interactive) (forward-paragraph)))
 
   ;; hooks
-  (add-hook 'go-mode-hook
-	    (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
   ;; (add-hook 'focus-in-hook
   ;; 	    #'evil-normal-state)
+  (add-hook 'go-mode-hook
+	    (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
 
   ;; funcs
   (defun evil-normalize-all-buffers ()
