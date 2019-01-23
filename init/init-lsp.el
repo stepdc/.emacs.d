@@ -32,6 +32,7 @@
   :defines company-backends
   :config
   (push 'company-lsp company-backends)
+  ;;  (setq company-lsp-enable-snippet nil)
   (setq company-lsp-async t))
 
 (provide 'init-lsp)
