@@ -4,6 +4,8 @@
   :config
   (setq lsp-inhibit-message t)
   (setq lsp-message-project-root-warning t)
+  (setq lsp-prefer-flymake nil)
+  (add-hook 'go-mode-hook #'lsp)
 
   ;; Restart server/workspace in case the lsp server exits unexpectedly.
   ;; https://emacs-china.org/t/topic/6392
@@ -24,7 +26,9 @@
 ;;               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
 ;;               ([remap xref-find-references] . lsp-ui-peek-find-references))
 ;;   :hook (lsp-mode . lsp-ui-mode)
-;;   :init (setq scroll-margin 0))
+;;   :init (setq scroll-margin 0)
+;;   :config
+;;   )
 
 (use-package company-lsp
   :ensure
