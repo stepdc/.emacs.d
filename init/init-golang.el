@@ -1,8 +1,5 @@
 ;;; package init-golang
 
-(use-package company-go
-  :ensure t)
-
 ;; (use-package go-rename
 ;;   :ensure t
 ;;   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
