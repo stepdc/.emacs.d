@@ -40,8 +40,8 @@
       (message "Dropped back to normal state in all buffers")))
 
   (defvar evil-normal-timer
-    (run-with-idle-timer 30 t #'evil-normalize-all-buffers)
-    "Drop back to normal state after idle for 30 seconds.")
+    (run-with-idle-timer 15 t #'evil-normalize-all-buffers)
+    "Drop back to normal state after idle for 15 seconds.")
   )
 
 (provide 'init-evil)

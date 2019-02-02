@@ -1,5 +1,8 @@
 ;;; package init-golang
 
+;; (use-package company-go
+;;   :ensure t)
+
 ;; (use-package go-rename
 ;;   :ensure t
 ;;   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
@@ -17,11 +20,13 @@
   (setq gofmt-command "goimports")
     (add-hook 'go-mode-hook
 	      (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
-    (add-hook 'go-mode-hook #'lsp)
+    ;; (add-hook 'go-mode-hook #'lsp)
     ;; (add-hook 'before-save-hook 'lsp-format-buffer)
 
+    ;; (add-hook 'go-mode-hook 'eglot-ensure)
+
     (add-hook 'go-mode-hook 'flycheck-mode)
-    (add-hook 'go-mode-hook 'yas-minor-mode)
+    ;; (add-hook 'go-mode-hook 'yas-minor-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-nav-mode)
     (add-hook 'go-mode-hook
@@ -87,7 +92,7 @@
 
 (use-package go-gen-test
   :ensure t
-  :defer t)     
+  :defer t)
 
 (use-package go-impl
     :defer t

@@ -29,7 +29,7 @@
 (require 'init-golang)
 (require 'init-c-cpp)
 ;; (require 'init-server)
-(require 'init-pinyin)
+;; (require 'init-pinyin)
 (require 'init-spelling)
 (require 'init-org)
 ;; (require 'init-key-chord)
@@ -38,5 +38,6 @@
 (require 'init-extra)
 (require 'init-evil)
 (require 'init-lsp)
+;; (require 'init-eglot)
 
 ;;; init.el ends here
