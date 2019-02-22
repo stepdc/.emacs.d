@@ -22,6 +22,7 @@
 ;; (require 'init-ivy)
 (require 'init-ivy)
 (require 'init-flycheck)
+;; (require 'init-projectile)
 (require 'init-ffip)
 (require 'init-vc)
 ;; (require 'init-ac)

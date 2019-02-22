@@ -1,7 +1,5 @@
 (use-package find-file-in-project
   :ensure t
-  :defer
-  :init
   :bind
   ("C-x f" . #'find-file-in-project)
   ("C-c f" . #'find-file-in-project)
@@ -11,8 +9,7 @@
   (autoload 'find-directory-in-project-by-selected "find-file-in-project" nil t)
   (autoload 'ffip-show-diff "find-file-in-project" nil t)
   (autoload 'ffip-save-ivy-last "find-file-in-project" nil t)
-  (autoload 'ffip-ivy-resume "find-file-in-project" nil t)
-  )
+  (autoload 'ffip-ivy-resume "find-file-in-project" nil t))
 
 (provide 'init-ffip)
 ;;; init-ffip.el ends here

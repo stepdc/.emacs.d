@@ -3,12 +3,14 @@
 ;; (use-package company-go
 ;;   :ensure t)
 
-;; (use-package go-rename
-;;   :ensure t
-;;   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
+(use-package go-rename
+   :ensure t
+   :defer
+   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
 
 (use-package go-guru
   :ensure t
+  :defer
   :config
   (go-guru-hl-identifier-mode))
 
@@ -20,10 +22,6 @@
   (setq gofmt-command "goimports")
     (add-hook 'go-mode-hook
 	      (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
-    ;; (add-hook 'go-mode-hook #'lsp)
-    ;; (add-hook 'before-save-hook 'lsp-format-buffer)
-
-    ;; (add-hook 'go-mode-hook 'eglot-ensure)
 
     (add-hook 'go-mode-hook 'flycheck-mode)
     ;; (add-hook 'go-mode-hook 'yas-minor-mode)
@@ -57,7 +55,8 @@
 ;;   )
 
 (use-package go-snippets
-  :ensure t)
+  :ensure t
+  :defer)
 
 (use-package gotest
   :ensure t
@@ -71,8 +70,10 @@
 
 (use-package godoctor
   :ensure t
+  :defer
   :bind
-  (:map go-mode-map ("S-<f6>" . 'godoctor-rename)))
+  ;; (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
+  )
 
 (use-package flycheck-golangci-lint
   :ensure t

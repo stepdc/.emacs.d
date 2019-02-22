@@ -1,7 +1,11 @@
 ;; ivy setup
 (use-package counsel
   :ensure t
-  :defer)
+  :defer
+  :config
+  (progn
+    (with-eval-after-load 'find-file-in-project
+      (setq counsel-fzf-dir-function 'ffip-project-root))))
 
 (use-package swiper
   :ensure t

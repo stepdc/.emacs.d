@@ -1,5 +1,8 @@
 ;; Themes setup
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp")
+(load-theme 'procolors)
+
 (defun gh/disable-all-themes ()
   (interactive)
   (mapc #'disable-theme custom-enabled-themes))
@@ -54,10 +57,11 @@
 ;;   :defer t
 ;;   :init	(load-theme 'spacemacs-light t))
 
-(use-package spacemacs-common
-  :if (display-graphic-p)
-  :ensure spacemacs-theme
-  :config (load-theme 'spacemacs-light t))
+;; (use-package spacemacs-common
+;;   :if (display-graphic-p)
+;;   :ensure spacemacs-theme
+;;   :config (load-theme 'spacemacs-light t))
+
 
 ;; (use-package zenburn-theme
 ;;   :if (not (display-graphic-p))
@@ -71,5 +75,7 @@
 
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/lisp/mgl-theme")
 ;; (load-theme 'mgl-light t)
+
+;; (load-theme 'base16-procolors-light)
 
 (provide 'init-themes)

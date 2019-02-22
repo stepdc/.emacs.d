@@ -21,6 +21,7 @@
   (define-key evil-normal-state-map (kbd "C-j") (lambda () (interactive) (next-line 3)))
   (define-key evil-normal-state-map (kbd "K") (lambda () (interactive) (backward-paragraph)))
   (define-key evil-normal-state-map (kbd "J") (lambda () (interactive) (forward-paragraph)))
+  (define-key evil-normal-state-map (kbd "C-l") (lambda () (interactive) (recenter-top-bottom) (evil-ex-nohighlight)))
 
   ;; hooks
   ;; (add-hook 'focus-in-hook
