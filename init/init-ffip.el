@@ -1,5 +1,6 @@
 (use-package find-file-in-project
   :ensure t
+  :defer 1
   :bind
   ("C-x f" . #'find-file-in-project)
   ("C-c f" . #'find-file-in-project)

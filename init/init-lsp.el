@@ -1,5 +1,6 @@
 (use-package lsp-mode
   :ensure
+  :defer 1
   :diminish lsp-mode
   :config
   (setq lsp-inhibit-message t)
@@ -32,6 +33,7 @@
 
 (use-package company-lsp
   :ensure
+  :defer 1
   :after company
   :defines company-backends
   :config

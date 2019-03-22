@@ -1,7 +1,7 @@
 ;; Enable Org functionality.
 (use-package org
   :ensure t
-  :defer
+  :defer 2
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c c" . org-capture)
          ("C-c C-s" . org-store-link)
@@ -78,7 +78,7 @@
 
 (use-package org-bullets
   :ensure t
-  :defer
+  :defer 2
   :init
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 

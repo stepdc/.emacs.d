@@ -1,7 +1,7 @@
 
 (use-package key-chord
   :ensure t
-  :defer
+  :defer 2
   :config
   (key-chord-mode +1)
   (key-chord-define-global "jj" 'avy-goto-word-1)

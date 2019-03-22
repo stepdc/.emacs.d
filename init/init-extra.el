@@ -1,7 +1,7 @@
 ;; Package to present nice undo tree, activated with: C-x u.
 (use-package undo-tree
-  :ensure t
-  :defer
+  :ensure
+  :defer 2
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
@@ -10,7 +10,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer
+  :defer 2
   :init
   (add-hook 'racket-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
@@ -18,16 +18,16 @@
 ;; Display available keybindings in popup.
 (use-package which-key
   :ensure t
-  :defer)
+  :defer 2)
 
 ;; Highlight symbol
 (use-package highlight-symbol
   :ensure t
-  :defer)
+  :defer 2)
 
 (use-package multiple-cursors
   :ensure t
-  :defer
+  :defer 2
   ;; :bind
   ;; ("M-D" . mc/mark-next-like-this-word)
   ;; (:map region-bindings-mode-map
@@ -50,13 +50,13 @@
 (global-set-key (kbd "M-*") 'pop-tag-mark)
 
 ;; c-i, c-o jumper
-(require 'nice-jumper)
-(global-nice-jumper-mode t)
+;; (require 'nice-jumper)
+;; (global-nice-jumper-mode t)
 ;; (global-set-key (kbd "C-o") 'nice-jumper/backward)
 ;; (define-key input-decode-map [?\C-i] [control-i])
 ;; (global-set-key [control-i] 'nice-jumper/forward)
-(global-set-key (kbd "C-S-h") 'nice-jumper/backward)
-(global-set-key (kbd "C-S-l") 'nice-jumper/forward)
+;; (global-set-key (kbd "C-S-h") 'nice-jumper/backward)
+;; (global-set-key (kbd "C-S-l") 'nice-jumper/forward)
 
 ;; icons
 ;; (use-package  all-the-icons
@@ -86,11 +86,11 @@
 ;; restclient
 (use-package restclient
   :ensure t
-  :defer)
+  :defer 2)
 
 (use-package popwin
   :ensure t
-  ;; :defer
+  :defer 1
   :config
   (progn
     (popwin-mode 1)
@@ -102,7 +102,7 @@
 ;; goto last change
 (use-package goto-chg
   :ensure t
-  :defer
+  :defer 1
   :bind
   ("C-=" . 'goto-last-change)
   ("C-+" . 'goto-last-change-reverse))
@@ -110,7 +110,7 @@
 ;; crux, most use for move begin of line
 (use-package crux
   :ensure t
-  :defer
+  :defer 1
   :bind ("C-a" . #'crux-move-beginning-of-line)
   :config
   (progn
@@ -123,7 +123,7 @@
     (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)))
 
 (use-package dumb-jump
-  :defer t
+  :defer 2
   :bind (("M-g o" . dumb-jump-go-other-window)
          ("M-g j" . dumb-jump-go)
          ("M-g i" . dumb-jump-go-prompt)

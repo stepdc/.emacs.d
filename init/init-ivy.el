@@ -1,7 +1,7 @@
 ;; ivy setup
 (use-package counsel
   :ensure t
-  :defer
+  :defer .5 
   :config
   (progn
     (with-eval-after-load 'find-file-in-project
@@ -9,11 +9,11 @@
 
 (use-package swiper
   :ensure t
-  :defer)
+  :defer .5)
 
 (use-package avy
   :ensure t
-  :defer
+  :defer .5
   :bind(
         ("C-:" . avy-goto-char)
         ("C-;" . avy-goto-char-2)
@@ -25,7 +25,7 @@
 (use-package ivy
   :ensure t
   :diminish (ivy-mode . "")
-  :defer
+  :defer .5
   :bind
   (("\C-s" . swiper)
    ("C-c r" . counsel-recentf)
@@ -72,10 +72,10 @@
 
 (use-package ivy-hydra
   :ensure t
-  :defer)
+  :defer .5)
 
 (use-package flx
   :ensure t
-  :defer)
+  :defer 1)
 
 (provide 'init-ivy)

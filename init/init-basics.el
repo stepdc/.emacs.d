@@ -1,14 +1,11 @@
 ;; Use-packages
 (use-package  better-defaults
   :ensure t
-  :defer)
-;; (use-package fzf :ensure t)
-
-(setq gc-cons-threshold 80000000) ;; 80MB
+  :defer 1)
 
 (use-package super-save
   :ensure t
-  :defer
+  :defer 2
   :diminish (super-save-mode
              hl-line-mode
              auto-revert-mode)
@@ -18,7 +15,7 @@
 
 (use-package ace-window
   :ensure t
-  :defer
+  :defer 2
   :bind (("C-M-o" . ace-window)
          ("C-c p" . ace-window))
   :config
@@ -258,12 +255,12 @@ nil are ignored."
 
 (use-package doom-modeline
   :ensure t
-  :defer t
+  :defer 1
   :hook (after-init . doom-modeline-init))
 
 (use-package yaml-mode
   :ensure t
-  :defer t
+  :defer 2
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
 

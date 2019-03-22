@@ -1,6 +1,6 @@
 (use-package hydra
   :ensure t
-  :defer
+  :defer 1
   :bind
   ("M-D" . 'multiple-cursors-hydra/body)
   :config

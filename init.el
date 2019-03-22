@@ -4,7 +4,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;; (package-initialize)
+
+(setq gc-cons-threshold 80000000) ;; 80MB
 
 (setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/.local/bin")))
 
@@ -41,4 +43,5 @@
 (require 'init-lsp)
 ;; (require 'init-eglot)
 
+(setq gc-cons-threshold 20000000) ;; 80MB
 ;;; init.el ends here

@@ -1,12 +1,12 @@
 (use-package flycheck
   :ensure t
-  :defer t
+  :defer 1
   :init (global-flycheck-mode))
 
 
 (use-package flycheck-gometalinter
   :ensure t
-  :defer
+  :defer 2
   :config
   (add-hook 'go-mode-hook
             (lambda ()
@@ -29,6 +29,7 @@
 
 (use-package flycheck-golangci-lint
       :ensure t
+      :defer 2
       :hook (go-mode . flycheck-golangci-lint-setup)
       :init ;; (setenv "GO111MODULE" "on")
       :config

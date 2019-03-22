@@ -3,6 +3,7 @@
 
 (use-package yasnippet
   :ensure t
+  :defer 1
   :diminish yas-global-mode
   :config
   (yas-global-mode t)

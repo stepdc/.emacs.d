@@ -1,7 +1,8 @@
 ;;; package init-golang
 
 ;; (use-package company-go
-;;   :ensure t)
+;;   :ensure t
+;;   :defer 2)
 
 (use-package go-rename
    :ensure t
@@ -10,14 +11,14 @@
 
 (use-package go-guru
   :ensure t
-  :defer
+  :defer 2
   :config
   (go-guru-hl-identifier-mode))
 
 (use-package go-mode
   :ensure t
   :mode ("\\.go" . go-mode)
-  :defer
+  :defer 1
   :init
   (setq gofmt-command "goimports")
     (add-hook 'go-mode-hook
@@ -56,11 +57,11 @@
 
 (use-package go-snippets
   :ensure t
-  :defer)
+  :defer 2)
 
 (use-package gotest
   :ensure t
-  :defer
+  :defer 2
   :bind
   (:map go-mode-map ("C-c t f" . 'go-test-current-file))
   (:map go-mode-map ("C-c t t" . 'go-test-current-test))
@@ -70,13 +71,14 @@
 
 (use-package godoctor
   :ensure t
-  :defer
+  :defer 2
   :bind
   ;; (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
   )
 
 (use-package flycheck-golangci-lint
   :ensure t
+  :defer 1
   :hook (go-mode . flycheck-golangci-lint-setup)
   :config
   (progn
@@ -89,18 +91,18 @@
 
 (use-package go-fill-struct
   :ensure t
-  :defer t)
+  :defer 2)
 
 (use-package go-gen-test
   :ensure t
-  :defer t)
+  :defer 2)
 
 (use-package go-impl
-    :defer t
+    :defer 2
     :ensure t)
 
 (use-package go-tag
-    :defer t
+    :defer 2
     :ensure t
     :config
     (setq go-tag-args (list "-transform" "camelcase")))

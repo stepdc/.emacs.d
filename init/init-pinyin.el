@@ -1,5 +1,6 @@
 (use-package pyim
   :ensure nil
+  :defer 2
   :demand t
   :config
   ;; 激活 basedict 拼音词库，五笔用户请继续阅读 README
