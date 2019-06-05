@@ -58,6 +58,16 @@
 ;; (global-set-key (kbd "C-S-h") 'nice-jumper/backward)
 ;; (global-set-key (kbd "C-S-l") 'nice-jumper/forward)
 
+;; (use-package better-jumper
+;;   :ensure t
+;;   :defer t
+;;   :init (better-jumper-mode +1)
+;;   :config
+;;   ;; (with-eval-after-load 'evil-maps
+;;   ;; (define-key evil-motion-state-map (kbd "C-o") 'better-jumper-jump-backward)
+;;   ;; (define-key evil-motion-state-map (kbd "<C-i>") 'better-jumper-jump-forward))
+;;   )
+
 ;; icons
 ;; (use-package  all-the-icons
 ;;   :ensure t
@@ -90,7 +100,7 @@
 
 (use-package popwin
   :ensure t
-  :defer 1
+  :defer t
   :config
   (progn
     (popwin-mode 1)

@@ -1,19 +1,19 @@
 ;; ivy setup
 (use-package counsel
   :ensure t
-  :defer .5 
+  :defer t
   :config
   (progn
     (with-eval-after-load 'find-file-in-project
       (setq counsel-fzf-dir-function 'ffip-project-root))))
 
 (use-package swiper
-  :ensure t
-  :defer .5)
+  :defer t
+  :ensure t)
 
 (use-package avy
   :ensure t
-  :defer .5
+  :defer t
   :bind(
         ("C-:" . avy-goto-char)
         ("C-;" . avy-goto-char-2)
@@ -24,10 +24,10 @@
 
 (use-package ivy
   :ensure t
+  :defer t
   :diminish (ivy-mode . "")
-  :defer .5
   :bind
-  (("\C-s" . swiper)
+  (("C-s" . swiper)
    ("C-c r" . counsel-recentf)
    ("C-c C-r" . ivy-resume)
    ("<f6>" . ivy-resume)
@@ -71,11 +71,16 @@
 	    (t . ivy--regex-ignore-order)))))
 
 (use-package ivy-hydra
+  :defer t
   :ensure t
-  :defer .5)
+  )
 
 (use-package flx
   :ensure t
   :defer 1)
+(use-package all-the-icons-ivy
+  :ensure t
+  :defer t
+  :config (all-the-icons-ivy-setup))
 
 (provide 'init-ivy)

@@ -13,6 +13,9 @@
 ;; Add local binary locations.
 (setq exec-path (append exec-path (list (expand-file-name "~/.local/bin"))))
 
+;; other hack
+(setq inhibit-compacting-font-caches t)
+
 ;; Add path to custom modules and init scripts.
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
@@ -42,6 +45,7 @@
 (require 'init-evil)
 (require 'init-lsp)
 ;; (require 'init-eglot)
+(require 'init-dap)
 
-(setq gc-cons-threshold 20000000) ;; 80MB
+(setq gc-cons-threshold 2000000) ;; 2MB, gc will pause faster
 ;;; init.el ends here

@@ -1,7 +1,7 @@
 ;; Themes setup
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/lisp")
-(load-theme 'procolors)
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/lisp")
+;; (load-theme 'procolors)
 
 (defun gh/disable-all-themes ()
   (interactive)
@@ -54,7 +54,7 @@
 ;; (use-package spacemacs-theme
 ;;   :if (display-graphic-p)
 ;;   :ensure t
-;;   :defer t
+;;   ;; :defer t
 ;;   :init	(load-theme 'spacemacs-light t))
 
 ;; (use-package spacemacs-common
@@ -62,12 +62,32 @@
 ;;   :ensure spacemacs-theme
 ;;   :config (load-theme 'spacemacs-light t))
 
+;; (use-package parchment-theme
+;;   :if (display-graphic-p)
+;;   :ensure t
+;;   :config (load-theme 'parchment t))
 
 ;; (use-package zenburn-theme
 ;;   :if (not (display-graphic-p))
 ;;   :init (load-theme 'zenburn))
 
+;; (use-package kaolin-themes
+;;   :ensure t
+;;   :if (display-graphic-p)
+;;   :config (load-theme 'kaolin-light t))
+
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :if (display-graphic-p)
+;;   :config (load-theme 'gruvbox-light-hard))
+
+(use-package doom-themes
+  :ensure t
+  :if (display-graphic-p)
+  :init (load-theme 'doom-one-light t))
+
 (use-package plan9-theme
+  :ensure t
   :if (not (display-graphic-p))
   :init (load-theme 'plan9))
 

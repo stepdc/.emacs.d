@@ -1,7 +1,6 @@
 ;; Use-packages
 (use-package  better-defaults
-  :ensure t
-  :defer 1)
+  :ensure t)
 
 (use-package super-save
   :ensure t
@@ -255,8 +254,7 @@ nil are ignored."
 
 (use-package doom-modeline
   :ensure t
-  :defer 1
-  :hook (after-init . doom-modeline-init))
+  :hook (after-init . doom-modeline-mode))
 
 (use-package yaml-mode
   :ensure t

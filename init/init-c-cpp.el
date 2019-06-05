@@ -1,59 +1,23 @@
-(use-package irony
+(setq-default c-indent-tabs-mode t     ; Pressing TAB should cause indentation
+              c-indent-level 4         ; A TAB is equivilent to four spaces
+              c-argdecl-indent 0       ; Do not indent argument decl's extra
+              c-tab-always-indent t
+              backward-delete-function nil) ; DO NOT expand tabs when deleting
+(c-add-style "my-c-style" '((c-continued-statement-offset 4))) ; If a statement continues on the next line, indent the continuation by 4
+(defun my-c-mode-hook ()
+  (c-set-style "my-c-style")
+  (c-set-offset 'substatement-open '0) ; brackets should be at same indentation level as the statements they open
+  (c-set-offset 'inline-open '+)
+  (c-set-offset 'block-open '+)
+  (c-set-offset 'brace-list-open '+)   ; all "opens" should be indented by the c-indent-level
+  (c-set-offset 'case-label '+))       ; indent case labels by c-indent-level, too
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+(add-hook 'c++-mode-hook 'my-c-mode-hook)
+
+(use-package ccls
   :ensure t
-  :defer
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-
-  ;; replace the `completion-at-point' and `complete-symbol' bindings in
-  ;; irony-mode's buffers by irony-mode's function
-  (defun my-irony-mode-hook ()
-    (define-key irony-mode-map [remap completion-at-point]
-      'irony-completion-at-point-async)
-    (define-key irony-mode-map [remap complete-symbol]
-      'irony-completion-at-point-async))
-  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
-(use-package company-irony
-  :ensure t
-  :defer
-  :config
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-irony)))
-
-(use-package flycheck-irony
-  :ensure t
-  :defer
-  :config
-  (eval-after-load 'flycheck
-    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
-
-(use-package irony-eldoc
-  :ensure t
-  :defer
-  :config
-  (add-hook 'irony-mode-hook 'irony-eldoc))
-
-(use-package clang-format
-  :ensure t
-  :bind
-  (:map c-mode-map ("C-c i" . clang-format-region))
-  (:map c++-mode-map ("C-c i" . clang-format-region))
-  (:map c-mode-map ("C-c u" . clang-format-buffer))
-  (:map c++-mode-map ("C-c u" . clang-format-buffer))
-  :config
-  (setq clang-format-style-option "google"))
-
-;; Linux kernel like style ".clang-format"
-;; ---
-;; BasedOnStyle: LLVM
-;; IndentWidth: 8
-;; UseTab: Always
-;; BreakBeforeBraces: Linux
-;; AllowShortIfStatementsOnASingleLine: false
-;; IndentCaseLabels: false
-;; ---
+  :defer t
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
 (provide 'init-c-cpp)

@@ -2,10 +2,9 @@
 
 (use-package company
   :ensure t
-  :defer
+  ;; :defer
   :diminish (company-mode
              eldoc-mode)
-  :init (global-company-mode)
   :bind (:map company-active-map
               ("C-j" . company-select-next)
               ("C-k" . company-select-previous)
@@ -22,12 +21,19 @@
             (setq company-tooltip-align-annotations t)
             (setq company-show-numbers t) ;; Easy navigation to candidates with M-<n>
             (setq company-tooltip-limit 20)                      ; bigger popup window
-            (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+            (setq company-idle-delay .2)                         ; decrease delay before autocompletion popup shows
             (setq company-echo-delay 0)                          ; remove annoying blinking
             ;; (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing)
-	    (setq company-minimum-prefix-length 2)
-
-	    ;; (company-tng-configure-default)
+            (setq company-minimum-prefix-length 2)
+            (setq company-backends (delete 'company-xcode company-backends))
+            (setq company-backends (delete 'company-bbdb company-backends))
+            (setq company-backends (delete 'company-eclim company-backends))
+            (setq company-backends (delete 'company-gtags company-backends))
+            (setq company-backends (delete 'company-etags company-backends))
+            (setq company-backends (delete 'company-oddmuse company-backends))
+            (add-to-list 'company-backends 'company-files)
+            ;; (company-tng-configure-default)
+            (global-company-mode)
             ))
 
 ;; (use-package company-statistics
