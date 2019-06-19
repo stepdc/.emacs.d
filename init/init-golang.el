@@ -6,24 +6,22 @@
 
 (use-package go-rename
    :ensure t
-   :defer
+   :defer t
    :bind (:map go-mode-map ("S-<f6>" . go-rename)))
 
 (use-package go-guru
   :ensure t
-  :defer 2
+  :defer t
   :config
   (go-guru-hl-identifier-mode))
 
 (use-package go-mode
   :ensure t
   :mode ("\\.go" . go-mode)
-  :defer 1
+  :defer t
   :init
-  (setq gofmt-command "goimports")
     (add-hook 'go-mode-hook
-	      (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
-
+              (lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
     (add-hook 'go-mode-hook 'flycheck-mode)
     ;; (add-hook 'go-mode-hook 'yas-minor-mode)
     (add-hook 'go-mode-hook 'highlight-symbol-mode)
@@ -57,11 +55,11 @@
 
 (use-package go-snippets
   :ensure t
-  :defer 2)
+  :defer t)
 
 (use-package gotest
   :ensure t
-  :defer 2
+  :defer t
   :bind
   (:map go-mode-map ("C-c t f" . 'go-test-current-file))
   (:map go-mode-map ("C-c t t" . 'go-test-current-test))
@@ -71,14 +69,14 @@
 
 (use-package godoctor
   :ensure t
-  :defer 2
+  :defer t
   :bind
   ;; (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
   )
 
 (use-package flycheck-golangci-lint
   :ensure t
-  :defer 1
+  :defer t
   :hook (go-mode . flycheck-golangci-lint-setup)
   :config
   (progn
@@ -91,18 +89,18 @@
 
 (use-package go-fill-struct
   :ensure t
-  :defer 2)
+  :defer t)
 
 (use-package go-gen-test
   :ensure t
-  :defer 2)
+  :defer t)
 
 (use-package go-impl
-    :defer 2
+    :defer t
     :ensure t)
 
 (use-package go-tag
-    :defer 2
+    :defer t
     :ensure t
     :config
     (setq go-tag-args (list "-transform" "camelcase")))

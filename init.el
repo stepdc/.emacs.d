@@ -8,10 +8,10 @@
 
 (setq gc-cons-threshold 80000000) ;; 80MB
 
-(setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/.local/bin")))
-
 ;; Add local binary locations.
-(setq exec-path (append exec-path (list (expand-file-name "~/.local/bin"))))
+(add-to-list 'exec-path "~/.local/bin")
+(add-to-list 'exec-path "~/go/bin")
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; other hack
 (setq inhibit-compacting-font-caches t)
@@ -48,4 +48,5 @@
 (require 'init-dap)
 
 (setq gc-cons-threshold 2000000) ;; 2MB, gc will pause faster
+
 ;;; init.el ends here

@@ -81,10 +81,16 @@
 ;;   :if (display-graphic-p)
 ;;   :config (load-theme 'gruvbox-light-hard))
 
-(use-package doom-themes
+;; (use-package doom-themes
+;;   :ensure t
+;;   :if (display-graphic-p)
+;;   :init (load-theme 'doom-one-light t))
+
+
+(use-package apropospriate-theme
   :ensure t
   :if (display-graphic-p)
-  :init (load-theme 'doom-one-light t))
+  :init (load-theme 'apropospriate-light t))
 
 (use-package plan9-theme
   :ensure t

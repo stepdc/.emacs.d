@@ -1,7 +1,12 @@
 (use-package dap-mode
   :ensure t
   :defer t
-  :config (require 'dap-go)
-  )
+  ;; :after lsp-mode
+  :diminish
+  :hook
+  ((after-init . dap-mode)
+   (dap-mode . dap-ui-mode)
+   (go-mode . (lambda () (require 'dap-go)))))
+
 
 (provide 'init-dap)

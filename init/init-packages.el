@@ -9,10 +9,10 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
-;; (setq package-archives '(("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;; 			 ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+(setq package-archives '(("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+ 			 ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
 ;; 			 ("marmalade-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
-;;                          ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+                          ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 (if (not (package-installed-p 'use-package))
     (progn

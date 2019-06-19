@@ -142,4 +142,9 @@
   :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
   :ensure)
 
+(use-package expand-region
+  :ensure t
+  :defer t
+  :bind (("C-@" . er/expand-region)))
+
 (provide 'init-extra)

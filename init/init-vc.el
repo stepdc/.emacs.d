@@ -11,4 +11,9 @@
   :ensure t
   :defer 2)
 
+(use-package git-gutter
+  :ensure t
+  :defer 3
+  :hook (go-mode . git-gutter-mode))
+
 (provide 'init-vc)

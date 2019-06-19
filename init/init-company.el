@@ -2,7 +2,7 @@
 
 (use-package company
   :ensure t
-  ;; :defer
+  ;; :defer t
   :diminish (company-mode
              eldoc-mode)
   :bind (:map company-active-map
@@ -43,7 +43,7 @@
 
 (use-package company-box
   :ensure
-  :defer 2
+  :defer t
   :hook (company-mode . company-box-mode))
 
 (provide 'init-company)
