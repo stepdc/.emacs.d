@@ -4,10 +4,10 @@
 ;;   :ensure t
 ;;   :defer 2)
 
-(use-package go-rename
-   :ensure t
-   :defer t
-   :bind (:map go-mode-map ("S-<f6>" . go-rename)))
+;; (use-package go-rename
+;;    :ensure t
+;;    :defer t
+;;    :bind (:map go-mode-map ("S-<f6>" . go-rename)))
 
 (use-package go-guru
   :ensure t
@@ -71,7 +71,7 @@
   :ensure t
   :defer t
   :bind
-  ;; (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
+  (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
   )
 
 (use-package flycheck-golangci-lint

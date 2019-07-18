@@ -145,6 +145,11 @@
 (use-package expand-region
   :ensure t
   :defer t
-  :bind (("C-@" . er/expand-region)))
+  :bind (("C-3" . er/expand-region))
+  )
+
+(use-package goldendict
+  :ensure t
+  :bind ("C-x t d" . goldendict-dwim))
 
 (provide 'init-extra)

@@ -89,5 +89,9 @@
 ;;   (setq guess-language-languages '(en pl))
 ;;   (add-hook 'text-mode-hook (lambda () (guess-language-mode 1))))
 
+(use-package anki-editor
+  :ensure t
+  :defer t)
+
 
 (provide 'init-org)

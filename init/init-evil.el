@@ -27,17 +27,17 @@
   ;; (add-hook 'focus-in-hook
   ;; 	    #'evil-normal-state)
   (add-hook 'go-mode-hook
-	    (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
+            (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
 
   ;; funcs
   (defun evil-normalize-all-buffers ()
     "Force a drop to normal state."
     (unless (eq evil-state 'normal)
       (dolist (buffer (buffer-list))
-	(set-buffer buffer)
-	(unless (or (minibufferp)
-		    (eq evil-state 'emacs))
-	  (evil-force-normal-state)))
+        (set-buffer buffer)
+        (unless (or (minibufferp)
+                    (eq evil-state 'emacs))
+          (evil-force-normal-state)))
       (message "Dropped back to normal state in all buffers")))
 
   (defvar evil-normal-timer
@@ -57,28 +57,33 @@
     :config
     (global-evil-matchit-mode 1))
 
+  (use-package evil-leader
+    :ensure t
+    :config
+    (setq evil-leader/in-all-states t)
+    (global-evil-leader-mode))
+
   (use-package evil-nerd-commenter
     :ensure t
     ;; :after evil-leader
     :config
-    (evilnc-default-hotkeys)
+    ;; (evilnc-default-hotkeys)
     
     (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-    (global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
-    (global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
+    ;; (global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
+    ;; (global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
     (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
-    ;; (evil-leader/set-key
-    ;;  "ci" 'evilnc-comment-or-uncomment-lines
-    ;;  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-    ;;  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-    ;;  "cc" 'evilnc-copy-and-comment-lines
-    ;;  "cp" 'evilnc-comment-or-uncomment-paragraphs
-    ;;  "cr" 'comment-or-uncomment-region
-    ;;  "cv" 'evilnc-toggle-invert-comment-line-by-line
-    ;;  "."  'evilnc-copy-and-comment-operator
-    ;;  "\\" 'evilnc-comment-operator ; if you prefer backslash key
-    ;;  )
-    )
+    (evil-leader/set-key
+      "ci" 'evilnc-comment-or-uncomment-lines
+      "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "cc" 'evilnc-copy-and-comment-lines
+      "cp" 'evilnc-comment-or-uncomment-paragraphs
+      "cr" 'comment-or-uncomment-region
+      "cv" 'evilnc-toggle-invert-comment-line-by-line
+      "."  'evilnc-copy-and-comment-operator
+      "\\" 'evilnc-comment-operator ; if you prefer backslash key
+      ))
   )
 
 (provide 'init-evil)

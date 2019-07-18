@@ -95,7 +95,8 @@
 (use-package plan9-theme
   :ensure t
   :if (not (display-graphic-p))
-  :init (load-theme 'plan9))
+  :init (load-theme 'plan9)
+  :config  (setq visible-cursor nil))
 
 ;; (load-theme 'quiet-light)
 
