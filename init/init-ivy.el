@@ -63,21 +63,43 @@
     (setq ivy-initial-inputs-alist nil)
 
     ;; Enhance fuzzy matching
-    (use-package flx :ensure t)
+    ;; (use-package flx :ensure t)
     ;; configure regexp engine.
+    ;; (setq ivy-re-builders-alist
+    ;;       ;; allow input not in order
+    ;;       '((t . ivy-regex-fuzzy)
+    ;;         (t . ivy--regex-ignore-order)))
+
     (setq ivy-re-builders-alist
-          ;; allow input not in order
-          '((read-file-name-internal . ivy--regex-fuzzy)
-	    (t . ivy--regex-ignore-order)))))
+          '((counsel-grep . ivy--regex-plus)
+            (counsel-rg   . ivy--regex-plus)
+            (counsel-pt   . ivy--regex-plus)
+            (counsel-M-x  . ivy--regex-plus)
+            (counsel-find-file . ivy--regex-plus)
+            (swiper       . ivy--regex-plus)
+            (t            . ivy--regex-fuzzy)
+            (t . ivy--regex-ignore-order)))
+
+    ;; (use-package flx
+    ;;   :ensure t
+    ;;   :init
+    ;;   (setq ivy-re-builders-alist
+    ;;         '((counsel-grep . ivy--regex-plus)
+    ;;           (counsel-rg   . ivy--regex-plus)
+    ;;           (counsel-pt   . ivy--regex-plus)
+    ;;           (swiper       . ivy--regex-plus)
+    ;;           (t            . ivy--regex-fuzzy))))
+    ))
 
 (use-package ivy-hydra
   :defer t
   :ensure t
   )
 
-(use-package flx
+(use-package amx
   :ensure t
-  :defer 1)
+  :after ivy)
+
 (use-package all-the-icons-ivy
   :ensure t
   :defer t

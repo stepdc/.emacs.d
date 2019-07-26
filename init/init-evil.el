@@ -28,6 +28,7 @@
   ;; 	    #'evil-normal-state)
   (add-hook 'go-mode-hook
             (lambda () (define-key evil-normal-state-map (kbd "C-]") 'godef-jump)))
+  (add-hook 'prog-mode-hook #'hs-minor-mode)
 
   ;; funcs
   (defun evil-normalize-all-buffers ()
