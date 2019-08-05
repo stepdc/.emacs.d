@@ -1,5 +1,4 @@
 (use-package evil
-  :ensure t ;; install the evil package if not installed
   :init ;; tweak evil's configuration before loading it
   (setq evil-disable-insert-state-bindings t)
   (setq evil-search-module 'evil-search)
@@ -8,8 +7,8 @@
   (setq evil-split-window-below t)
   (setq evil-shift-round nil)
   (setq evil-want-C-u-scroll t)
-  :config ;; tweak evil after loading it
   (evil-mode)
+  :config ;; tweak evil after loading it
   ;; skip to evil normal state
   (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 
@@ -47,25 +46,21 @@
 
   ;; extras
   (use-package evil-surround
-    :ensure t
     :config
     (global-evil-surround-mode 1))
 
   (use-package evil-matchit
-    :ensure t
     :init
     (setq evilmi-shortcut "m")
     :config
     (global-evil-matchit-mode 1))
 
   (use-package evil-leader
-    :ensure t
     :config
     (setq evil-leader/in-all-states t)
     (global-evil-leader-mode))
 
   (use-package evil-nerd-commenter
-    :ensure t
     ;; :after evil-leader
     :config
     ;; (evilnc-default-hotkeys)

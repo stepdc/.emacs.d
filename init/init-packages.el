@@ -7,12 +7,17 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+
 (package-initialize) ;; You might already have this line
 
-(setq package-archives '(("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
- 			 ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-;; 			 ("marmalade-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/marmalade/")
-                          ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-always-defer t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-enable-imenu-support t))
 
 (if (not (package-installed-p 'use-package))
     (progn
@@ -20,12 +25,6 @@
       (package-install 'use-package)))
 
 (require 'use-package)
-;; (setq use-package-verbose t)
-
-;; (use-package benchmark-init
-;;   :ensure t
-;;   :config
-;;   ;; To disable collection of benchmark data after init is done.
-;;   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+;; (setq use-package-verbose t)	
 
 (provide 'init-packages)

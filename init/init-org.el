@@ -91,7 +91,7 @@
 
 (use-package anki-editor
   :ensure t
-  :defer t)
+  :defer 3)
 
 
 (provide 'init-org)

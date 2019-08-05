@@ -14,10 +14,4 @@
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 (add-hook 'c++-mode-hook 'my-c-mode-hook)
 
-(use-package ccls
-  :ensure t
-  :defer t
-  :hook ((c-mode c++-mode objc-mode) .
-         (lambda () (require 'ccls) (lsp))))
-
 (provide 'init-c-cpp)

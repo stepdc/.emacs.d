@@ -1,9 +1,8 @@
 ;; Use-packages
 (use-package  better-defaults
-  :ensure t)
+  :defer 1)
 
 (use-package super-save
-  :ensure t
   :defer 2
   :diminish (super-save-mode
              hl-line-mode
@@ -13,7 +12,6 @@
   (setq super-save-auto-save-when-idle t))
 
 (use-package ace-window
-  :ensure t
   :defer 2
   :bind (("C-M-o" . ace-window)
          ("C-c p" . ace-window))
@@ -101,20 +99,33 @@
   (tool-bar-mode 0)  ;; remove tool bar
   (menu-bar-mode 0)  ;; remove menu bar
   (scroll-bar-mode 0)  ;; remove scroll bars
-  (set-fringe-mode '(8 . 0))  ;; set fringe size
-  (blink-cursor-mode t)  ;; turn on blinking cursor
-  (setq-default cursor-type 'box)
-  (add-to-list 'default-frame-alist
-               '(font . "EssentialPragmataPro 11")
-               '(font . "DejaVuSansMono 11"))
+  ;; (set-fringe-mode '(8 . 0))  ;; set fringe size
+  ;; (blink-cursor-mode t)  ;; turn on blinking cursor
+  ;; (setq-default cursor-type 'box)
+  ;; (add-to-list 'default-frame-alist
+  ;;              '(font . "EssentialPragmataPro 11")
+  ;;              '(font . "DejaVuSansMono 11"))
   )
 
-(setup-frame-decorations)
+;; (setup-frame-decorations)
+;; (tool-bar-mode -1)  ;; remove tool bar
+;; (menu-bar-mode -1)  ;; remove menu bar
+;; (scroll-bar-mode -1)  ;; remove scroll bars
+
+(unless (eq window-system 'ns)
+  (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
+
 
 ;; Apply settings to each frame.
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (with-selected-frame frame (setup-frame-decorations))))
+;; (add-hook 'after-make-frame-functions
+;;           (lambda (frame)
+;;             (with-selected-frame frame (setup-frame-decorations))))
 
 ;; (global-set-key (kbd "<f2>") 'toggle-truncate-lines)
 
@@ -253,11 +264,9 @@ nil are ignored."
       `((".*" ,temporary-file-directory t)))
 
 (use-package doom-modeline
-  :ensure t
   :hook (after-init . doom-modeline-mode))
 
 (use-package yaml-mode
-  :ensure t
   :defer 2
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))

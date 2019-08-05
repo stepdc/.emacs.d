@@ -21,10 +21,14 @@
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 
 (require 'init-packages)
+
+;; (require 'benchmark-init)
+;; ;; To disable collection of benchmark data after init is done.
+;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
+
 (require 'init-basics)
 (require 'init-yas)
 (require 'init-themes)
-;; (require 'init-ivy)
 (require 'init-ivy)
 (require 'init-flycheck)
 ;; (require 'init-projectile)

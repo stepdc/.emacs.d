@@ -1,8 +1,7 @@
 ;; completion framework
 
 (use-package company
-  :ensure t
-  ;; :defer t
+  :hook (after-init . global-company-mode)
   :diminish (company-mode
              eldoc-mode)
   :bind (:map company-active-map
@@ -37,7 +36,6 @@
             ;;       '(company-tng-frontend
             ;;         company-pseudo-tooltip-frontend
             ;;         company-echo-metadata-frontend))
-            (global-company-mode)
 
             ;; The free version of TabNine is good enough,
             ;; and below code is recommended that TabNine not always
@@ -61,10 +59,8 @@
 ;;   :hook (company-mode . company-box-mode))
 
 (use-package company-tabnine
-  :ensure t
-  :defer t
+  :after company
   :config
-  
   (defun company//sort-by-tabnine (candidates)
     (if (or (functionp company-backend)
             (not (and (listp company-backend) (memq 'company-tabnine company-backend))))

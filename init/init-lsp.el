@@ -1,12 +1,9 @@
 (use-package lsp-mode
-  :ensure t
-  :defer t
   :diminish lsp-mode
   :hook
-  (go-mode . lsp)
-  (c-mode . lsp)
-  (c++-mode . lsp)
-  (rust-mode . lsp)
+  (prog-mode . lsp)
+  :init
+  (setq lsp-auto-guess-root t)
   :config
   (setq lsp-inhibit-message t)
   (setq lsp-message-project-root-warning t)
@@ -24,6 +21,21 @@
 
   ;; (require 'lsp-imenu)
   ;; (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+
+  (use-package company-lsp
+    :after company
+    :defines company-backends
+    :init (setq company-lsp-cache-candidates 'auto)
+    :config
+    (push 'company-lsp company-backends)
+    ;;  (setq company-lsp-enable-snippet nil)
+    (setq company-lsp-async t))
+
+  (use-package ccls
+    :ensure t
+    :defer t
+    :hook ((c-mode c++-mode objc-mode) .
+	   (lambda () (require 'ccls) (lsp))))
   )
 
 ;; (use-package lsp-ui
@@ -36,16 +48,5 @@
 ;;   :init (setq scroll-margin 0)
 ;;   :config
 ;;    )
-
-(use-package company-lsp
-  :ensure t
-  :defer t
-  :after company
-  :defines company-backends
-  :init (setq company-lsp-cache-candidates 'auto)
-  :config
-  (push 'company-lsp company-backends)
-  ;;  (setq company-lsp-enable-snippet nil)
-  (setq company-lsp-async t))
 
 (provide 'init-lsp)
