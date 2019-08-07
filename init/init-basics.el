@@ -1,6 +1,5 @@
 ;; Use-packages
-(use-package  better-defaults
-  :defer 1)
+(use-package  better-defaults)
 
 (use-package super-save
   :defer 2

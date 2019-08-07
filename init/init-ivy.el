@@ -1,27 +1,9 @@
 ;; ivy setup
-(use-package counsel
-  :config
-  (progn
-    (with-eval-after-load 'find-file-in-project
-      (setq counsel-fzf-dir-function 'ffip-project-root))))
-
-(use-package swiper
-  :after ivy)
-
-(use-package avy
-  :after ivy
-  :bind(
-        ("C-:" . avy-goto-char)
-        ("C-;" . avy-goto-char-2)
-        ("M-g f" . avy-goto-line)
-        ("M-g w" . avy-goto-word-1)
-        ("M-g e" . avy-goto-word-0)
-        ))
 
 (use-package ivy
   :diminish (ivy-mode . "")
-  :hook((after-init . ivy-mode)
-	(ivy-mode . counsel-mode))
+  :hook ((after-init . ivy-mode)
+	 (ivy-mode . counsel-mode))
   :bind
   (("C-s" . swiper)
    ("C-c r" . counsel-recentf)
@@ -48,7 +30,6 @@
    ("C-r" . counsel-expression-history))
   :config
   (progn
-    (ivy-mode 1)
     ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
     (setq ivy-use-virtual-buffers t)
     ;; number of result lines to display
@@ -86,6 +67,28 @@
     ;;           (swiper       . ivy--regex-plus)
     ;;           (t            . ivy--regex-fuzzy))))
     ))
+
+(use-package counsel
+  :after ivy
+  :config
+  (progn
+    (with-eval-after-load 'find-file-in-project
+      (setq counsel-fzf-dir-function 'ffip-project-root))))
+
+(use-package swiper
+  :after ivy
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)))
+
+(use-package avy
+  :after ivy
+  :bind(
+        ("C-:" . avy-goto-char)
+        ("C-;" . avy-goto-char-2)
+        ("M-g f" . avy-goto-line)
+        ("M-g w" . avy-goto-word-1)
+        ("M-g e" . avy-goto-word-0)
+        ))
 
 (use-package ivy-hydra)
 
