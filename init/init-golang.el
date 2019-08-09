@@ -46,6 +46,8 @@
   (use-package go-snippets)
 
   (use-package gotest
+    :after go
+    :demand t
     :bind
     (:map go-mode-map ("C-c t f" . 'go-test-current-file))
     (:map go-mode-map ("C-c t t" . 'go-test-current-test))
@@ -55,6 +57,7 @@
 
   (use-package godoctor
     :after go
+    :demand t
     :bind
     (:map go-mode-map ("S-<f6>" . 'godoctor-rename))
     )
